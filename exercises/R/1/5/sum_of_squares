@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import sys
+
+def sum_of_squares(limit):
+    assert isinstance(limit, int) and limit > 0
+    return sum (i*i for i in range(1, limit))
+
+if __name__ == "__main__":
+    limit = int(sys.argv[1])
+    print("Sum of the squares of all positive integers less than %i: %i" %(limit, sum_of_squares(limit)))
