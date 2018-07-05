@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import sys
+
+def is_multiple(n, m):
+    while n > 0:
+        n -= m
+    return n == 0
+
+if __name__ == "__main__":
+    n = int(sys.argv[1])
+    m = int(sys.argv[2])
+    print("%i is %sa multiple of %i." %(n, "" if is_multiple(n, m) else "not ", m))
