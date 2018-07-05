@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+import sys
+
+def sum_of_odd_squares(limit):
+    assert isinstance(limit, int) and limit > 0
+    n = limit // 2
+    return n * (2 * n + 1) * (2 * n - 1) / 3
+
+if __name__ == "__main__":
+    limit = int(sys.argv[1])
+    print("Sum of the squares of all odd positive integers less than %i: %i" %(limit, sum_of_odd_squares(limit)))
