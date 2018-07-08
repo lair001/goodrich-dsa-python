@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-sed -i "s|# Convenience for running solutions to exercises in Data Structures and Algorithms in Python||g" \
-    ~/.bash_profile ~/.bashrc
-sed -i "s|export PYTHONPATH=\"\$PYTHONPATH:$PWD\"||g" ~/.bash_profile ~/.bashrc
