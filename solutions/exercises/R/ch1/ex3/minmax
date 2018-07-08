@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# ch1_ex3_1
+# ch1_ex3_sc1
 
-from exercises.argv_utils import parse_int_seq
+from solutions.libs.utils.argv import parse_int_seq
 
 def minmax(seq):
     min = seq[0]

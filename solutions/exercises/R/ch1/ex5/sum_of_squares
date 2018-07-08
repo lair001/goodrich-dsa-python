@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-# ch1_ex4_1
+# ch1_ex5_sc1
 
 import sys
 
 def sum_of_squares(limit):
     assert isinstance(limit, int) and limit > 0
-    n = limit - 1
-    return n * (n + 1) * (2*n + 1) / 6
+    return sum (i*i for i in range(1, limit))
 
 if __name__ == "__main__":
     limit = int(sys.argv[1])
