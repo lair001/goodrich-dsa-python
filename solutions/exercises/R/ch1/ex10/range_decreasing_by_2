@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+# ch1_ex10_sc1
+
+if __name__ == "__main__":
+    print(list(range(8, -9, -2)))
