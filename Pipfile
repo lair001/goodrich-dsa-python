@@ -23,4 +23,5 @@ ch1_ex5_sc1 = "solutions/exercises/R/ch1/ex5/sum_of_squares"
 ch1_ex6_sc1 = "solutions/exercises/R/ch1/ex6/sum_of_odd_squares"
 ch1_ex7_sc1 = "solutions/exercises/R/ch1/ex7/sum_of_odd_squares"
 ch1_ex8_sc1 = "solutions/exercises/R/ch1/ex8/equivalent_index"
+ch1_ex9_sc1 = "solutions/exercises/R/ch1/ex9/range_increasing_by_10"
 
