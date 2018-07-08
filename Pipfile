@@ -25,4 +25,4 @@ ch1_ex7_sc1 = "solutions/exercises/R/ch1/ex7/sum_of_odd_squares"
 ch1_ex8_sc1 = "solutions/exercises/R/ch1/ex8/equivalent_index"
 ch1_ex9_sc1 = "solutions/exercises/R/ch1/ex9/range_increasing_by_10"
 ch1_ex10_sc1 = "solutions/exercises/R/ch1/ex10/range_decreasing_by_2"
-
+ch1_ex11_sc1 = "solutions/exercises/R/ch1/ex11/range_of_powers_of_2"
