@@ -13,5 +13,13 @@ setuptools = "*"
 python_version = "3.6"
 
 [scripts]
-minmax = "pipenv run exercises/R/ch1/ex3/minmax"
-equivalent_index = "pipenv run exercises/R/ch1/ex8/equivalent_index"
+
+ch1_ex1_1 = "pipenv run exercises/R/ch1/ex1/using_modulo"
+ch1_ex1_2 = "pipenv run exercises/R/ch1/ex1/without_modulo"
+ch1_ex2_1 = "pipenv run exercises/R/ch1/ex2/is_even"
+ch1_ex3_1 = "pipenv run exercises/R/ch1/ex3/minmax"
+ch1_ex4_1 = "pipenv run exercises/R/ch1/ex4/sum_of_squares"
+ch1_ex5_1 = "pipenv run exercises/R/ch1/ex5/sum_of_squares"
+ch1_ex6_1 = "pipenv run exercises/R/ch1/ex6/sum_of_odd_squares"
+ch1_ex7_1 = "pipenv run exercises/R/ch1/ex7/sum_of_odd_squares"
+ch1_ex8_1 = "pipenv run exercises/R/ch1/ex8/equivalent_index"
