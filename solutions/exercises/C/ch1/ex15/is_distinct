@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+# ch1_ex15_sc1
+
+from solutions.libs.utils.argv import parse_int_seq
+
+def is_distinct(seq):
+    observed_values = {}
+
+    for n in seq:
+        value_str = str(n)
+        if value_str in observed_values:
+            return False
+        observed_values[value_str] = value_str
+    return True
+
+if __name__ == "__main__":
+    seq = parse_int_seq(1)[0]
+    print("%s has %s values." %(seq, "only distinct" if is_distinct(seq) else "duplicate"))
