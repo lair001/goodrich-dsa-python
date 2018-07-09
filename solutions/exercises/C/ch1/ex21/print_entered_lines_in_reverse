@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+# ch1_ex21_sc1
+
+from random import randint
+from solutions.libs.utils.argv import parse_int_seq
+
+def read_lines():
+    lines = []
+    while True:
+        try:
+            lines.append(input('Please enter a line of text: '))
+        except EOFError:
+            break;
+    return lines
+
+def print_lines_in_reverse(lines):
+    print("")
+    while (len(lines) > 0):
+        print(lines.pop())
+
+
+if __name__ == "__main__":
+    print_lines_in_reverse(read_lines())
