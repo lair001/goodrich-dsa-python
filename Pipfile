@@ -30,3 +30,4 @@ ch1_ex12_sc1 = "solutions/exercises/R/ch1/ex12/choice"
 
 ch1_ex13_sc1 = "solutions/exercises/C/ch1/ex13/non_destructive_reverse"
 ch1_ex13_sc2 = "solutions/exercises/C/ch1/ex13/destructive_reverse"
+ch1_ex14_sc1 = "solutions/exercises/C/ch1/ex14/odd_product_pair"
