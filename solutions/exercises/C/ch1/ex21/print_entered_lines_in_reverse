@@ -2,9 +2,6 @@
 
 # ch1_ex21_sc1
 
-from random import randint
-from solutions.libs.utils.argv import parse_int_seq
-
 def read_lines():
     lines = []
     while True:
