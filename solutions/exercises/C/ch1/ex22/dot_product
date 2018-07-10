@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+# ch1_ex22_sc1
+
+from random import randint
+from solutions.libs.utils.argv import parse_int_seq
+
+def dot_product(vector_a, vector_b):
+    assert len(vector_a) == len(vector_b)
+    result = []
+    for i in range(len(vector_a)):
+        result.append(vector_a[i] * vector_b[i])
+    return result
+
+
+if __name__ == "__main__":
+    current_argv_index = 1
+    vector_a, current_argv_index = parse_int_seq(current_argv_index)
+    vector_b, current_argv_index = parse_int_seq(current_argv_index)
+    print(dot_product(vector_a, vector_b))
