@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+# ch1_ex23_sc1
+
+from random import randrange
+from solutions.libs.utils.argv import parse_int_seq
+
+if __name__ == "__main__":
+    seq = parse_int_seq(1)[0]
+    try:
+        print(seq[randrange(0, len(seq) * 2)])
+    except IndexError:
+        print("Don’t try buffer overflow attacks in Python!")
