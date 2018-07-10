@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+# ch1_ex25_sc1
+
+def strip_punct(string):
+    punctuation = "[!\"#$%&'()*+,./:;<=>?@\^_`{|}~-]"
+    result = []
+    for char in string:
+        if char not in punctuation:
+            result.append(char)
+    return "".join(result)
+
+if __name__ == "__main__":
+    print(strip_punct(input("Please enter a string: ")))
