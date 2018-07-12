@@ -46,3 +46,6 @@ ch1_ex25_sc2 = "solutions/exercises/C/ch1/ex25/strip_punct_with_regex"
 ch1_ex26_sc1 = "solutions/exercises/C/ch1/ex26/match_arth_expr"
 ch1_ex27_sc1 = "solutions/exercises/C/ch1/ex27/increasing_factors_time_optimized"
 ch1_ex27_sc2 = "solutions/exercises/C/ch1/ex27/increasing_factors_memory_optimized"
+
+ch1_ex29_sc1 = "solutions/exercises/P/ch1/ex29/permute_str_by_recursion"
+ch1_ex29_sc2 = "solutions/exercises/P/ch1/ex29/permute_str_by_iteration"
