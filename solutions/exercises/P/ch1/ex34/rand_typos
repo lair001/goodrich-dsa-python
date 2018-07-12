@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+# ch1_ex34_sc1
+
+from random import randrange
+from random import random
+
+def get_sentences():
+    sentences = []
+    correct = "I will never spam my friends again."
+    typos = [
+        "i will never spam my friends again.",
+        "I will never spam my friends again",
+        "I will ever spam my friends again.",
+        "I will never spam my friend again.",
+        "I will spam my friends again.",
+        "I will never spam my friends again?",
+        "I will not never spam my friends again.",
+        "I will never spam your friends again."
+    ]
+    for _ in range(0, 100):
+        sentences.append(correct if random() <= 0.8 else typos[randrange(0, len(typos))])
+    return sentences
+
+if __name__ == "__main__":
+    for num, sentence in enumerate(get_sentences(), 1):
+        print("%3i. %s" %(num, sentence))
