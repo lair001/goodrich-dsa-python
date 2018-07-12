@@ -49,3 +49,5 @@ ch1_ex27_sc2 = "solutions/exercises/C/ch1/ex27/increasing_factors_memory_optimiz
 
 ch1_ex29_sc1 = "solutions/exercises/P/ch1/ex29/permute_str_by_recursion"
 ch1_ex29_sc2 = "solutions/exercises/P/ch1/ex29/permute_str_by_iteration"
+ch1_ex30_sc1 = "solutions/exercises/P/ch1/ex30/divide_by_two_iteration"
+ch1_ex30_sc2 = "solutions/exercises/P/ch1/ex30/divide_by_two_recursion"

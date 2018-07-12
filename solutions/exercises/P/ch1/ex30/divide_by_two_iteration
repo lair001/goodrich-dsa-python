@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+# ch1_ex30_sc1
+
+from sys import argv
+
+def divide_by_two(n):
+    count = 0
+    while n >= 2:
+        count += 1
+        n /= 2
+    return count
+
+if __name__ == "__main__":
+    print(divide_by_two(int(argv[1])))
