@@ -1,3 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-pipenv run "$@"
+from sys import argv
+from sys import exit
+from sys import path as sys_path
+from os import path as os_path
+from subprocess import Popen
+
+sys_path.insert(0, os_path.join(os_path.dirname(__file__), "aliases"))
+
+from aliases.util import substitute as substitute_alias
+
+command = ['pipenv', 'run']
+
+command.append(substitute_alias(argv[1]))
+command.extend(argv[2:])
+
+exit(Popen(command).wait())

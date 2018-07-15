@@ -9,5 +9,5 @@ setuptools.setup(
     url = "https://github.com/lair001/data-structures-and-algorithms-in-python-solutions",
     description = ("My solutions to Data Structures and Algorithms in Python by "
                    "Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser"),
-    packages = setuptools.find_packages()
+    packages = setuptools.find_packages(exclude=["aliases"])
 )
