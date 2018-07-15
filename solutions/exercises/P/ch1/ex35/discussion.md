@@ -1,0 +1,2 @@
+I took the liberty of increasing the resolution of the data in the
+vicinity of the critical point <img src="/solutions/exercises/P/ch1/ex35/tex/643fb8cc01a55cde6919568e3835d790.svg?invert_in_darkmode&sanitize=true" align=middle width=48.85906079999999pt height=21.18721440000001pt/>.
