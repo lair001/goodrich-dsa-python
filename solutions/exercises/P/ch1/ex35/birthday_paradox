@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+# ch1_ex35_sc1
+
+from random import randrange
+
+n_values = list(range(5, 21, 5))
+n_values.extend(range(21, 25))
+n_values.extend(range(25, 101, 5))
+
+def get_birthdays(n):
+    birthdays = []
+    for _ in range(n):
+        birthdays.append(randrange(1, 366))
+    return birthdays
+
+def has_duplicate(birthdays):
+    seen = {}
+
+    for birthday in birthdays:
+        birthday_str = str(birthday)
+        if birthday_str in seen:
+            return True
+        else:
+            seen[birthday_str] = birthday_str
+
+    return False
+
+def get_probability(n):
+    sum = 0
+    num_trials = 10000
+    for _ in range(num_trials):
+        if has_duplicate(get_birthdays(n)):
+            sum += 1
+    return sum / num_trials
+
+def get_birthday_paradox_stats():
+    stats = {}
+    for n in n_values:
+        stats[str(n)] = get_probability(n)
+    return stats
+
+if __name__ == "__main__":
+    stats = get_birthday_paradox_stats()
+    for n in n_values:
+        print("%i: %.3f" %(n, stats[str(n)]))
