@@ -8,11 +8,11 @@ from subprocess import Popen
 
 sys_path.insert(0, os_path.join(os_path.dirname(__file__), "aliases"))
 
-from aliases.util import substitute as substitute_alias
+from aliases.util import get_alias_value
 
 command = ['pipenv', 'run']
 
-command.append(substitute_alias(argv[1]))
+command.append(get_alias_value(argv[1]))
 command.extend(argv[2:])
 
 exit(Popen(command).wait())
