@@ -19,7 +19,7 @@ if __name__ == "__main__":
     seq_a = [5, 3, 10, -2, 1]
     seq_v = parse_int_seq(1)[0]
 
-    vector_v = Vector(len(seq_a))
+    vector_v = Vector(len(seq_v))
     for i in range(len(vector_v)):
         vector_v[i] = seq_v[i]
 
