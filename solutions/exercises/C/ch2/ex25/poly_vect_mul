@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+# ch2_ex25_sc1
+
+from sys import argv
+from numbers import Real
+from solutions.fragments.ch2.Vector import Vector as Ch2Vector
+from solutions.libs.utils.argv import parse_int_seq
+
+class Vector(Ch2Vector):
+    def __mul__(self, other):
+        """Return either dot product or scalar multiplication result depending on argument type."""
+        if isinstance(other, Ch2Vector):
+            return self.__dot_product(other)
+        else:
+            return self.__scalar_multiplication(other)
+
+    def __rmul__(self, scalar):
+        """Return scalar multiplication result."""
+        return self.__scalar_multiplication(scalar)
+
+    def __dot_product(self, other):
+        """Return dot product result."""
+        if isinstance(other, Ch2Vector):
+            if len(self) != len(other):
+                raise ValueError('dimensions must agree')
+            return sum(self[i] * other[i] for i in range(len(self)))
+        else:
+            return NotImplemented
+
+    def __scalar_multiplication(self, scalar):
+        """Return scalar multiplication result."""
+        if isinstance(scalar, Real):
+            result = Vector(len(self))
+            for i in range(len(self)):
+                result[i] = self[i] * scalar
+            return result
+        else:
+            return NotImplemented
+
+if __name__ == "__main__":
+    current_index = 1
+    seq_u, current_index = parse_int_seq(current_index)
+    seq_v, current_index = parse_int_seq(current_index)
+    scalar_k = int(argv[current_index]) if argv[current_index].lstrip('-+').isdigit() else float(argv[current_index])
+
+    vector_u = Vector(len(seq_u))
+    for i in range(len(vector_u)):
+        vector_u[i] = seq_u[i]
+
+    vector_v = Vector(len(seq_v))
+    for i in range(len(vector_v)):
+        vector_v[i] = seq_v[i]
+
+    print("%s * %s = %s" %(vector_u, vector_v, vector_u * vector_v))
+    print("%s * %s = %s" %(vector_u, scalar_k, vector_u * scalar_k))
