@@ -20,7 +20,10 @@ class Vector(Ch2Vector):
 
 if __name__ == "__main__":
     seq_v, current_index = parse_int_seq(1)
-    scalar = int(argv[current_index])
+    if argv[1].lstrip('-+').isdigit():
+        scalar = int(argv[current_index])
+    else:
+        scalar = float(argv[current_index])
 
     vector_v = Vector(len(seq_v))
     for i in range(len(vector_v)):
