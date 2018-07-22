@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+# ch2_ex15_sc1
+
+from sys import argv
+from collections import Sequence
+from solutions.fragments.ch2.Vector import Vector as Ch2Vector
+from solutions.libs.utils.argv import parse_int_seq
+
+class Vector(Ch2Vector):
+    def __init__(self, arg):
+        if isinstance(arg, int):
+            super().__init__(arg)
+        elif isinstance(arg, Sequence):
+            self._coords = []
+            for i in range(len(arg)):
+                self._coords.append(arg[i])
+        else:
+            return None
+
+if __name__ == "__main__":
+    print(Vector(int(argv[1])))
+    print(Vector(parse_int_seq(2)[0]))
