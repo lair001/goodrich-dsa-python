@@ -5,5 +5,6 @@ ch2_aliases = {
     "ch2_ex10_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex10", "vector_negation"),
     "ch2_ex11_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex11", "vector_righthand_addition"),
     "ch2_ex12_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex12", "vector_multiplication"),
-    "ch2_ex13_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex13", "vector_righthand_multiplication")
+    "ch2_ex13_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex13", "vector_righthand_multiplication"),
+    "ch2_ex14_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex14", "dot_product")
 }
