@@ -2,8 +2,6 @@
 
 # ch2_ex14_sc1
 
-from numbers import Real
-from sys import argv
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
 from solutions.libs.utils.argv import parse_int_seq
 
