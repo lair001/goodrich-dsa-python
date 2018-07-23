@@ -1,6 +1,7 @@
 import sys, re
 
-def parse_int_seq(beginning_index):
+
+def parse_seq(beginning_index):
     seq = []
     current_index = beginning_index
     opening = None
@@ -28,7 +29,12 @@ def parse_int_seq(beginning_index):
         clean_arg = re.sub(cleaning_pattern, ' ', clean_arg)
         for token in clean_arg.split(" "):
             if token not in blanks:
-                seq.append(int(token))
+                seq.append(token)
         if arg[-1] == closing:
             break
     return seq, current_index
+
+
+def parse_int_seq(beginning_index):
+    raw = parse_seq(beginning_index)
+    return list(map(int, raw[0])), raw[1]
