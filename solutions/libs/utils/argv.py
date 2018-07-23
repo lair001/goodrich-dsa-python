@@ -8,9 +8,10 @@ def parse_seq(beginning_index):
     closing = None
     openings = ['[', '{', '(']
     openings_to_closings = {
-        '[' : ']',
-        '{' : '}',
-        '(' : ')'
+        '[': ']',
+        '{': '}',
+        '(': ')',
+        '<': '>'
     }
     blanks = [" ", ""]
 
