@@ -10,5 +10,6 @@ ch2_aliases = {
     "ch2_ex15_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex15", "construct_vector_from_iterable"),
 
     "ch2_ex25_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex25", "poly_vect_mul"),
-    "ch2_ex26_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex26", "rev_seq_iter")
+    "ch2_ex26_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex26", "rev_seq_iter"),
+    "ch2_ex27_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex27", "efficient_range_contains")
 }
