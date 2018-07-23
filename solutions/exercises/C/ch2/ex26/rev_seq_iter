@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+# ch2_ex26_sc1
+
+from solutions.fragments.ch2.SequenceIterator import SequenceIterator as Ch2SequenceIterator
+from solutions.libs.utils.argv import parse_seq
+
+class ReversedSequenceIterator(Ch2SequenceIterator):
+    def __next__(self):
+        """Return the next element, or else raise StopIteration error."""
+        # __init__ of the base class initializes self._k to -1, which happens to be the first index of a reversed
+        # iteration.  Therefore, we first want to retrieve the next element and then increment the index for the
+        # succeeding call of __next__.
+        if self._k >= -len(self._seq):
+            next = self._seq[self._k]  # return the data element
+            self._k -= 1  # advance to next index
+            return next
+        else:
+            raise StopIteration()  # there are no more elements
+
+if __name__ == "__main__":
+    print("[%s]" % ", ".join(ReversedSequenceIterator(parse_seq(1)[0])))
