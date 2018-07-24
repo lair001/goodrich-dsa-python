@@ -2,6 +2,7 @@ from os import path as os_path
 
 ch2_aliases = {
     "ch2_ex5_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex5", "numeric_typecheck"),
+    "ch2_ex6_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex6", "value_check"),
     "ch2_ex9_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex9", "vector_subtraction"),
     "ch2_ex10_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex10", "vector_negation"),
     "ch2_ex11_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex11", "vector_righthand_addition"),
