@@ -11,7 +11,7 @@ class Progression:
         """Initialize current to the first value of the progression."""
         self._current = start
 
-    def advance(self):
+    def _advance(self):
         """Update self. current to a new value.
 
         This should be overridden by a subclass to customize progression.
