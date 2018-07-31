@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+# ch2_ex19_sc1
+
+from sys import argv
+from solutions.fragments.ch2.ArithmeticProgression import ArithmeticProgression
+
+if __name__ == "__main__":
+    n = int(argv[1]) if len(argv) > 1 else 63
+    progression = ArithmeticProgression(128)
+
+    result = 1
+    while next(progression) < 2**n:
+        result += 1
+
+    print(result)
