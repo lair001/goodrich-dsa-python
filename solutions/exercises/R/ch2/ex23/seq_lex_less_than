@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+# ch2_ex23_sc1
+
+from solutions.libs.utils.argv import parse_seq
+from solutions.fragments.ch2.Sequence import Sequence as Ch2Sequence
+
+
+class Sequence(Ch2Sequence):
+
+    def __init__(self, seq):
+        self._seq = seq
+
+    def __len__(self):
+        return len(self._seq)
+
+    def __getitem__(self, index):
+        return self._seq[index]
+
+    def __lt__(self, other):
+        for i in range(len(self)):
+            if str(self[i]) < str(other[i]):
+                return True
+            elif str(other[i]) < str(self[i]):
+                return False
+
+        return len(self) < len(other)
+
+
+if __name__ == "__main__":
+    current_index = 1
+    list_a, current_index = parse_seq(current_index)
+    list_b = parse_seq(current_index)[0]
+
+    print(Sequence(list_a) < Sequence(list_b))
