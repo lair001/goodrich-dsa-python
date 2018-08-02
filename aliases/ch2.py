@@ -13,6 +13,7 @@ ch2_aliases = {
     "ch2_ex15_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex15", "construct_vector_from_iterable"),
     "ch2_ex18_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex18", "alt_fib"),
     "ch2_ex19_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex19", "terms_to_equal_or_exceed_limit"),
+    "ch2_ex22_sc1": os_path.join("solutions", "exercises", "R", "ch2", "ex22", "sequence_equality"),
 
     "ch2_ex25_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex25", "poly_vect_mul"),
     "ch2_ex26_sc1": os_path.join("solutions", "exercises", "C", "ch2", "ex26", "rev_seq_iter"),
