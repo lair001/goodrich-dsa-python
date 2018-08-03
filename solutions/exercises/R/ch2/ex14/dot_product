@@ -3,7 +3,7 @@
 # ch2_ex14_sc1
 
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __mul__(self, other):
@@ -17,8 +17,8 @@ class Vector(Ch2Vector):
 
 if __name__ == "__main__":
     current_index = 1
-    seq_v, current_index = parse_int_seq(current_index)
-    seq_u = parse_int_seq(current_index)[0]
+    seq_v, current_index = parse_int_list(current_index)
+    seq_u = parse_int_list(current_index)[0]
 
     vector_v = Vector(len(seq_v))
     for i in range(len(vector_v)):

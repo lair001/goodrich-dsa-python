@@ -5,7 +5,7 @@
 from sys import argv
 from collections import Iterable
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __init__(self, arg):
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     size = int(argv[1])
     print(Vector(size))
     print(Vector(range(size)))
-    print(Vector(parse_int_seq(2)[0]))
+    print(Vector(parse_int_list(2)[0]))

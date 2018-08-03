@@ -3,7 +3,7 @@
 # ch2_ex10_sc1
 
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __neg__(self):
@@ -13,7 +13,7 @@ class Vector(Ch2Vector):
         return result
 
 if __name__ == "__main__":
-    seq_a = parse_int_seq(1)[0]
+    seq_a = parse_int_list(1)[0]
 
     vector_a = Vector(len(seq_a))
     for i in range(len(vector_a)):

@@ -2,7 +2,7 @@
 
 # ch1_ex13_sc1
 
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def non_destructive_reverse(seq):
     result = []
@@ -11,4 +11,4 @@ def non_destructive_reverse(seq):
     return result
 
 if __name__ == "__main__":
-    print(non_destructive_reverse(parse_int_seq(1)[0]))
+    print(non_destructive_reverse(parse_int_list(1)[0]))

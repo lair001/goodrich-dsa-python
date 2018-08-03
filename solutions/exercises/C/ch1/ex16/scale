@@ -3,7 +3,7 @@
 # ch1_ex16_sc1
 
 import sys
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def scale(data, factor):
     for j in range(len(data)):
@@ -12,6 +12,6 @@ def scale(data, factor):
 
 if __name__ == "__main__":
     current_index = 1
-    data, current_index = parse_int_seq(current_index)
+    data, current_index = parse_int_list(current_index)
     factor = int(sys.argv[current_index])
     print(scale(data, factor))

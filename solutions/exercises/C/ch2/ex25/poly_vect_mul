@@ -5,7 +5,7 @@
 from sys import argv
 from numbers import Real
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __mul__(self, other):
@@ -40,8 +40,8 @@ class Vector(Ch2Vector):
 
 if __name__ == "__main__":
     current_index = 1
-    seq_u, current_index = parse_int_seq(current_index)
-    seq_v, current_index = parse_int_seq(current_index)
+    seq_u, current_index = parse_int_list(current_index)
+    seq_v, current_index = parse_int_list(current_index)
     scalar_k = int(argv[current_index]) if argv[current_index].lstrip('-+').isdigit() else float(argv[current_index])
 
     vector_u = Vector(len(seq_u))

@@ -2,7 +2,7 @@
 
 # ch1_ex15_sc1
 
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def is_distinct(seq):
     observed_values = {}
@@ -15,5 +15,5 @@ def is_distinct(seq):
     return True
 
 if __name__ == "__main__":
-    seq = parse_int_seq(1)[0]
+    seq = parse_int_list(1)[0]
     print("%s has %s values." %(seq, "only distinct" if is_distinct(seq) else "duplicate"))

@@ -3,7 +3,7 @@
 # ch1_ex28_sc1
 
 from sys import argv
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def get_p_norm(v, p=2):
     sum = 0
@@ -12,7 +12,7 @@ def get_p_norm(v, p=2):
     return sum ** (1/p)
 
 if __name__ == "__main__":
-    v, current_index = parse_int_seq(1)
+    v, current_index = parse_int_list(1)
     p = int(argv[current_index]) if current_index < len(argv) else 2
     p_norm = get_p_norm(v, p)
     print("The %i-norm of %s is %f." %(p, v, p_norm))

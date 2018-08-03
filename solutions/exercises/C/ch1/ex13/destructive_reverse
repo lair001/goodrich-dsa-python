@@ -2,7 +2,7 @@
 
 # ch1_ex13_sc2
 
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def destructive_reverse(seq):
     last_index = len(seq) - 1
@@ -13,4 +13,4 @@ def destructive_reverse(seq):
     return seq
 
 if __name__ == "__main__":
-    print(destructive_reverse(parse_int_seq(1)[0]))
+    print(destructive_reverse(parse_int_list(1)[0]))

@@ -5,7 +5,7 @@
 from numbers import Real
 from sys import argv
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __mul__(self, scalar):
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         scalar = int(argv[1])
     else:
         scalar = float(argv[1])
-    seq_v = parse_int_seq(2)[0]
+    seq_v = parse_int_list(2)[0]
 
     vector_v = Vector(len(seq_v))
     for i in range(len(vector_v)):

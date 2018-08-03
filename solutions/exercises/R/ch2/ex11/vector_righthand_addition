@@ -3,7 +3,7 @@
 # ch2_ex11_sc1
 
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __radd__(self, other):
@@ -17,7 +17,7 @@ class Vector(Ch2Vector):
 
 if __name__ == "__main__":
     seq_a = [5, 3, 10, -2, 1]
-    seq_v = parse_int_seq(1)[0]
+    seq_v = parse_int_list(1)[0]
 
     vector_v = Vector(len(seq_v))
     for i in range(len(vector_v)):

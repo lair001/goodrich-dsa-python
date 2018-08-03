@@ -3,10 +3,10 @@
 # ch1_ex12_sc1
 
 from random import randrange
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def choice(seq):
     return seq[randrange(0, len(seq))]
 
 if __name__ == "__main__":
-    print(choice(parse_int_seq(1)[0]))
+    print(choice(parse_int_list(1)[0]))

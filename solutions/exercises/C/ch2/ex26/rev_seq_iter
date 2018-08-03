@@ -3,7 +3,7 @@
 # ch2_ex26_sc1
 
 from solutions.fragments.ch2.SequenceIterator import SequenceIterator as Ch2SequenceIterator
-from solutions.libs.utils.argv import parse_seq
+from solutions.libs.utils.argv import parse_list
 
 class ReversedSequenceIterator(Ch2SequenceIterator):
     def __next__(self):
@@ -19,4 +19,4 @@ class ReversedSequenceIterator(Ch2SequenceIterator):
             raise StopIteration()  # there are no more elements
 
 if __name__ == "__main__":
-    print("[%s]" % ", ".join(ReversedSequenceIterator(parse_seq(1)[0])))
+    print("[%s]" % ", ".join(ReversedSequenceIterator(parse_list(1)[0])))

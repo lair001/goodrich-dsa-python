@@ -3,7 +3,7 @@
 # ch1_ex20_sc1
 
 from random import randint
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def shuffle(seq):
     last_index = len(seq) - 1
@@ -16,4 +16,4 @@ def shuffle(seq):
 
 
 if __name__ == "__main__":
-    print(shuffle(parse_int_seq(1)[0]))
+    print(shuffle(parse_int_list(1)[0]))

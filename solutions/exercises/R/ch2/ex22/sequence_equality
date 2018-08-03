@@ -2,7 +2,7 @@
 
 # ch2_ex22_sc1
 
-from solutions.libs.utils.argv import parse_seq
+from solutions.libs.utils.argv import parse_list
 from solutions.fragments.ch2.Sequence import Sequence as Ch2Sequence
 
 class Sequence(Ch2Sequence):
@@ -26,7 +26,7 @@ class Sequence(Ch2Sequence):
 
 if __name__ == "__main__":
     current_index = 1
-    list_a, current_index = parse_seq(current_index)
-    list_b = parse_seq(current_index)[0]
+    list_a, current_index = parse_list(current_index)
+    list_b = parse_list(current_index)[0]
 
     print(Sequence(list_a) == Sequence(list_b))

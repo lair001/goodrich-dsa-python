@@ -5,7 +5,7 @@
 from numbers import Real
 from sys import argv
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 class Vector(Ch2Vector):
     def __mul__(self, scalar):
@@ -19,7 +19,7 @@ class Vector(Ch2Vector):
             return NotImplemented
 
 if __name__ == "__main__":
-    seq_v, current_index = parse_int_seq(1)
+    seq_v, current_index = parse_int_list(1)
     if argv[1].lstrip('-+').isdigit():
         scalar = int(argv[current_index])
     else:

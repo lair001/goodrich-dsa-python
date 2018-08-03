@@ -2,7 +2,7 @@
 
 # ch1_ex3_sc1
 
-from solutions.libs.utils.argv import parse_int_seq
+from solutions.libs.utils.argv import parse_int_list
 
 def minmax(seq):
     min = seq[0]
@@ -16,6 +16,6 @@ def minmax(seq):
     return min, max
 
 if __name__ == "__main__":
-    seq = parse_int_seq(1)[0]
+    seq = parse_int_list(1)[0]
     min, max = minmax(seq)
     print("min: %i\nmax: %i" %(min, max))
