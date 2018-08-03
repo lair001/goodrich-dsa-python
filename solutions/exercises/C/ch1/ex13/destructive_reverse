@@ -3,14 +3,16 @@
 # ch1_ex13_sc2
 
 from solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.ListDecorator import ListDecorator
 
-def destructive_reverse(seq):
-    last_index = len(seq) - 1
-    for i in range(0, len(seq) // 2):
-        temp = seq[i]
-        seq[i] = seq[last_index - i]
-        seq[last_index - i] = temp
-    return seq
+
+def destructive_reverse(lst):
+    lst_dec = ListDecorator(lst)
+    last_index = len(lst_dec) - 1
+    for i in range(0, len(lst_dec) // 2):
+        lst_dec.swap(i, last_index - i)
+    return lst
+
 
 if __name__ == "__main__":
     print(destructive_reverse(parse_int_list(1)[0]))

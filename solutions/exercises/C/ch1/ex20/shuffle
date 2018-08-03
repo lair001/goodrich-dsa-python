@@ -4,15 +4,15 @@
 
 from random import randint
 from solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.ListDecorator import ListDecorator
 
-def shuffle(seq):
-    last_index = len(seq) - 1
+
+def shuffle(lst):
+    lst_dec = ListDecorator(lst)
+    last_index = len(lst_dec) - 1
     for i in range(0, last_index):
-        tmp = seq[i]
-        rnd = randint(i, last_index)
-        seq[i] = seq[rnd]
-        seq[rnd] = tmp
-    return seq
+        lst_dec.swap(i, randint(i, last_index))
+    return lst
 
 
 if __name__ == "__main__":
