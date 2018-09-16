@@ -8,6 +8,3 @@ class SequenceDecorator(DynamicDecorator, metaclass=ABCMeta):
     @abstractstaticmethod
     def _is_valid_wrappee(potential_seq):
         return isinstance(potential_seq, Sequence)
-
-    def __len__(self):
-        return len(self._wrappee)
