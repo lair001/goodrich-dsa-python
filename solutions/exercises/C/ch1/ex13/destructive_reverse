@@ -3,7 +3,7 @@
 # ch1_ex13_sc2
 
 from solutions.libs.utils.argv import parse_int_list
-from solutions.libs.utils.ListDecorator import ListDecorator
+from solutions.libs.decorators.dynamic.ListDecorator import ListDecorator
 
 
 def destructive_reverse(lst):

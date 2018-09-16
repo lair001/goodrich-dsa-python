@@ -4,7 +4,7 @@
 
 from random import randint
 from solutions.libs.utils.argv import parse_int_list
-from solutions.libs.utils.ListDecorator import ListDecorator
+from solutions.libs.decorators.dynamic.ListDecorator import ListDecorator
 
 
 def shuffle(lst):
