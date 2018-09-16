@@ -16,10 +16,10 @@ class DynamicDecorator(metaclass=ABCMeta):
         self._wrappee = wrappee
 
     def __iter__(self):
-        self.unwrap().__iter__()
+        return self.unwrap().__iter__()
 
     def __next__(self):
-        self.unwrap().__next__()
+        return self.unwrap().__next__()
 
     def __getattr__(self, item):
         return getattr(self.unwrap(), item)
