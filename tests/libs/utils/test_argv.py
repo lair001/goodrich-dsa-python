@@ -27,11 +27,27 @@ def execute_parse_int_list_test(args, expected_values):
     execute_base_parse_list_test(args, expected_values, argv_utils.parse_int_list, 1)
 
 
-def test_parse_list():
+def test_parse_list_with_square_brackets():
     args = ["path", "[", "1", "2", "3", "]"]
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
 
+
+def test_parse_list_with_french_braces():
+    args = ["path", "{", "1", "2", "3", "}"]
+    expected_values = ["1", "2", "3"]
+    execute_parse_list_test(args, expected_values)
+
+
+def test_parse_list_with_parenthesis():
+    args = ["path", "(", "1", "2", "3", ")"]
+    expected_values = ["1", "2", "3"]
+    execute_parse_list_test(args, expected_values)
+
+def test_parse_list_with_angular_brackets():
+    args = ["path", "<", "1", "2", "3", ">"]
+    expected_values = ["1", "2", "3"]
+    execute_parse_list_test(args, expected_values)
 
 def test_parse_list_with_multiple_lists():
     args = ["path", "[", "1", "2", "3", "]", "[", "4", "5", "6", "]"]
@@ -45,14 +61,19 @@ def test_parse_list_with_commas():
     execute_parse_list_test(args, expected_values)
 
 
-def test_parse_list_with_single_arg_list_separated_by_commas():
+def test_parse_list_with_list_as_single_arg_and_elements_separated_by_commas():
     args = ["path", "[1,2,3]"]
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
 
 
-def test_parse_list_with_single_arg_list_separated_by_spaces():
+def test_parse_list_with_list_as_single_arg_and_elements_separated_by_spaces():
     args = ["path", "[1 2 3]"]
+    expected_values = ["1", "2", "3"]
+    execute_parse_list_test(args, expected_values)
+
+def test_parse_list_with_list_as_single_arg_and_elements_separated_by_by_commas_and_spaces():
+    args = ["path", "[ 1 , 2 , 3 ]"]
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
 
