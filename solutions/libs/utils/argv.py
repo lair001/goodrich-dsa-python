@@ -19,7 +19,7 @@ def parse_list(beginning_index):
         arg = sys.argv[current_index]
         clean_arg = arg
         current_index += 1
-        if opening == None:
+        if opening is None:
             if arg[0] in openings:
                 opening = arg[0]
                 clean_arg = re.sub(r"\A%s" %(re.escape(opening)), '', clean_arg)
