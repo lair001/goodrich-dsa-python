@@ -6,7 +6,7 @@ def parse_list(beginning_index):
     current_index = beginning_index
     opening = None
     closing = None
-    openings = ['[', '{', '(']
+    openings = ['[', '{', '(', '<']
     openings_to_closings = {
         '[': ']',
         '{': '}',
