@@ -22,9 +22,9 @@ def parse_list(beginning_index):
         if opening is None:
             if arg[0] in openings:
                 opening = arg[0]
-                clean_arg = re.sub(r"\A%s" %(re.escape(opening)), '', clean_arg)
+                clean_arg = re.sub(r"\A%s" % (re.escape(opening)), '', clean_arg)
                 closing = openings_to_closings[opening]
-                cleaning_pattern = r"(,|%s\Z)" %(re.escape(closing))
+                cleaning_pattern = r"(,|%s\Z)" % (re.escape(closing))
             else:
                 continue
         clean_arg = re.sub(cleaning_pattern, ' ', clean_arg)
