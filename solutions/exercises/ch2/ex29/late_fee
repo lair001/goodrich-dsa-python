@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+# ch2_ex29_sc1
+
+from sys import argv
+from solutions.fragments.ch2.PredatoryCreditCard import PredatoryCreditCard as Ch2PredatoryCreditCard
+
+
+class PredatoryCreditCard(Ch2PredatoryCreditCard):
+    def __init__(self, customer, bank, acnt, limit, apr, min_payment_rate, late_fee):
+        self._min_payment_rate = min_payment_rate / 100.0
+        self._late_fee = late_fee
+        self._total_payment = 0.0
+        self._prev_bal = 0.0
+        super().__init__(customer, bank, acnt, limit, apr)
+
+    def make_payment(self, amount):
+        self._total_payment += amount
+        super().make_payment(amount)
+
+    def minimum_payment(self):
+        return self._prev_bal * self._min_payment_rate
+
+    def process_month(self):
+        if self._total_payment < self.minimum_payment():
+            self._balance += self._late_fee
+        super().process_month()
+        self._prev_bal = self._balance
+
+
+if __name__ == "__main__":
+    customer = "Wilbur Smith"
+    bank = "A Bank"
+    acnt = "12345 67890"
+    limit = 10000.0
+    apr = 20
+    min_payment_rate = int(argv[1]) if len(argv) > 1 else 10
+    late_fee = float(argv[2]) if len(argv) > 2 else 25.0
+
+    credit_card = PredatoryCreditCard(customer, bank, acnt, limit, apr, min_payment_rate, late_fee)
+    print()
+    print("Initial Balance: {:.2f}".format(credit_card.get_balance()))
+    print()
+
+    monthly_charge = 1000.0
+    monthly_payment = 500.0
+
+    for _ in range(12):
+        print("Charging ${:.2f}".format(monthly_charge))
+        credit_card.charge(monthly_charge)
+        print("Paying ${:.2f}".format(monthly_payment))
+        credit_card.make_payment(monthly_payment)
+        print("Minimum payment: ${:.2f}".format(credit_card.minimum_payment()))
+        print("Late fee: ${:.2f}".format(late_fee if monthly_payment < credit_card.minimum_payment() else 0.0))
+        credit_card.process_month()
+        print("End of Month Balance: ${:.2f}".format(credit_card.get_balance()))
+        print()
