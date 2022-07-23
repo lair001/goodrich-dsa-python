@@ -7,7 +7,7 @@ name = "pypi"
 pytest = "*"
 
 [packages]
-setuptools = "*"
+setuptools = "==63.2.0"
 "e1839a8" = {path = ".", editable = true}
 
 [requires]
