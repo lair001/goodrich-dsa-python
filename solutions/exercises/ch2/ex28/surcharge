@@ -16,7 +16,7 @@ class PredatoryCreditCard(Ch2PredatoryCreditCard):
         self._charge_count += 1
         if self._charge_count > 10:
             self._balance += 1
-        super().charge(price)
+        return super().charge(price)
 
 
 if __name__ == "__main__":
@@ -31,15 +31,19 @@ if __name__ == "__main__":
     print("Initial Balance: {:.2f}".format(credit_card.get_balance()))
     print()
 
-    num_charges = argv[1] if len(argv) > 1 else 20
+    num_charges = int(argv[1]) if len(argv) > 1 else 20
+    successful_charges = 0
     price = 100.0
 
     for _ in range(num_charges):
         print("Charging ${:.2f}".format(price))
-        credit_card.charge(price)
+        if credit_card.charge(price):
+            successful_charges += 1
         print("Balance: ${:.2f}".format(credit_card.get_balance()))
         print()
 
     print("Total number of charges: {}".format(num_charges))
-    print("Total Surcharge: ${:.2f}".format(credit_card.get_balance() - num_charges * price))
+    print("Total Surcharge: ${:.2f}".format(
+        credit_card.get_balance() - successful_charges * price - (num_charges - successful_charges) * 5
+    ))
     print()
