@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+# ch2_ex28_sc1
+
+from sys import argv
+from solutions.fragments.ch2.PredatoryCreditCard import PredatoryCreditCard as Ch2PredatoryCreditCard
+
+
+class PredatoryCreditCard(Ch2PredatoryCreditCard):
+    def __init__(self, customer, bank, acnt, limit, apr):
+        self._charge_count = 0
+        super().__init__(customer, bank, acnt, limit, apr)
+        self._balance = 0.0
+
+    def charge(self, price):
+        self._charge_count += 1
+        if self._charge_count > 10:
+            self._balance += 1
+        super().charge(price)
+
+
+if __name__ == "__main__":
+    customer = "Wilbur Smith"
+    bank = "A Bank"
+    acnt = "12345 67890"
+    limit = 5000.0
+    apr = 20
+
+    credit_card = PredatoryCreditCard(customer, bank, acnt, limit, apr)
+    print()
+    print("Initial Balance: {:.2f}".format(credit_card.get_balance()))
+    print()
+
+    num_charges = argv[1] if len(argv) > 1 else 20
+    price = 100.0
+
+    for _ in range(num_charges):
+        print("Charging ${:.2f}".format(price))
+        credit_card.charge(price)
+        print("Balance: ${:.2f}".format(credit_card.get_balance()))
+        print()
+
+    print("Total number of charges: {}".format(num_charges))
+    print("Total Surcharge: ${:.2f}".format(credit_card.get_balance() - num_charges * price))
+    print()
