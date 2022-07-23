@@ -19,3 +19,4 @@ ex27 efficient_range_contains
 ex28 surcharge
 ex29 late_fee
 ex31 difference_progression
+ex32 sqrt_progression

@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+# ch2_ex32_sc1
+
+from math import sqrt
+from sys import argv
+from solutions.fragments.ch2.Progression import Progression as Ch2Progression
+
+
+class SqrtProgression(Ch2Progression):
+    def __init__(self, start=65536):
+        super().__init__(start)
+
+    def _advance(self):
+        self._current = sqrt(self._current)
+
+
+if __name__ == "__main__":
+    if len(argv) > 1:
+        progression = SqrtProgression(int(argv[1]))
+    else:
+        progression = SqrtProgression()
+
+    n = int(argv[3]) if len(argv) > 3 else 20
+    progression.print_progression(n)
