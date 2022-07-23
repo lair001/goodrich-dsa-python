@@ -1,0 +1,18 @@
+ex5 numeric_typecheck
+ex6 value_check
+ex7 initialize_balance
+ex9 vector_subtraction
+ex10 vector_negation
+ex11 vector_righthand_addition
+ex12 vector_multiplication
+ex13 vector_righthand_multiplication
+ex14 dot_product
+ex15 construct_vector_from_iterable
+ex18 alt_fib
+ex19 terms_to_equal_or_exceed_limit
+ex22 sequence_equality
+ex23 seq_lex_less_than
+
+ex25 poly_vect_mul
+ex26 rev_seq_iter
+ex27 efficient_range_contains
