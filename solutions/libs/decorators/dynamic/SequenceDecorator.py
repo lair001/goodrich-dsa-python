@@ -1,5 +1,5 @@
 from solutions.libs.decorators.dynamic.DynamicDecorator import DynamicDecorator
-from collections import Sequence
+from typing import Sequence
 from abc import ABCMeta, abstractstaticmethod
 
 
