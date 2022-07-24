@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+
+# ch2_ex35_sc1
+
+import random
+from sys import stdout
+import time
+import uuid
+from collections import deque
+from random import randint
+
+
+class Router:
+
+    def __init__(self):
+        self._senders = {}
+        self._receivers = {}
+
+    def establish_connection(self, computer_a, computer_b):
+        packet_queue_for_a_to_b = deque()
+        packet_queue_for_b_to_a = deque()
+
+        if computer_a.get_id() not in self._senders.keys():
+            self._senders[computer_a.get_id()] = {}
+        if computer_a.get_id() not in self._receivers.keys():
+            self._receivers[computer_a.get_id()] = {}
+
+        if computer_b.get_id() not in self._senders.keys():
+            self._senders[computer_b.get_id()] = {}
+        if computer_b.get_id() not in self._receivers.keys():
+            self._receivers[computer_b.get_id()] = {}
+
+        self._senders[computer_a.get_id()][computer_b.get_id()] = packet_queue_for_a_to_b
+        self._receivers[computer_b.get_id()][computer_a.get_id()] = packet_queue_for_a_to_b
+
+        self._senders[computer_b.get_id()][computer_a.get_id()] = packet_queue_for_b_to_a
+        self._receivers[computer_a.get_id()][computer_b.get_id()] = packet_queue_for_b_to_a
+
+    def send_packet(self, sender, receiver, ppacket):
+        self._senders[sender.get_id()][receiver.get_id()].append(ppacket)
+
+    def receive_packet(self, receiver, sender):
+        if len(self._receivers[receiver.get_id()][sender.get_id()]) > 0:
+            return self._receivers[receiver.get_id()][sender.get_id()].popleft()
+
+
+class Computer:
+
+    def __init__(self, router):
+        self._outgoing_packets = {}
+        self._router = router
+        self._id = uuid.uuid4().hex
+
+    def get_id(self):
+        return self._id
+
+    def generate_outgoing_packets(self, receiver):
+        if receiver.get_id() not in self._outgoing_packets.keys():
+            self._outgoing_packets[receiver.get_id()] = deque()
+        for _ in range(randint(1, 8)):
+            self._outgoing_packets[receiver.get_id()].append(format(random.getrandbits(256), 'X'))
+
+    def send_packet_to(self, receiver):
+        if receiver.get_id() not in self._outgoing_packets.keys():
+            self._outgoing_packets[receiver.get_id()] = deque()
+        if len(self._outgoing_packets[receiver.get_id()]) > 0:
+            self._router.send_packet(self, receiver, self._outgoing_packets[receiver.get_id()].popleft())
+
+    def read_packet_from(self, sender):
+        return self._router.receive_packet(self, sender)
+
+    def connect_to(self, computer):
+        self._router.establish_connection(self, computer)
+
+
+if __name__ == "__main__":
+    skynet = Router()
+    alice = Computer(skynet)
+    bob = Computer(skynet)
+
+    alice.connect_to(bob)
+
+    while True:
+        if random.random() > 0.95:
+            alice.generate_outgoing_packets(bob)
+        alice.send_packet_to(bob)
+        packet = bob.read_packet_from(alice)
+        if packet is not None:
+            print()
+            print("Bob reads a packet from Alice:")
+            print(packet)
+        stdout.flush()
+        time.sleep(0.1)
