@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+# ch4_ex9_sc1
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+def min_max(int_seq):
+    return tuple(_min_max(int_seq, len(int_seq)))
+
+
+def _min_max(int_seq, n):
+    if n == 0:
+        return [None, None]
+    elif n == 1:
+        return [int_seq[0], int_seq[0]]
+    else:
+        prev_min_max = _min_max(int_seq, n - 1)
+        prev_min_max[0] = min(prev_min_max[0], int_seq[n - 1])
+        prev_min_max[1] = max(prev_min_max[1], int_seq[n - 1])
+        return prev_min_max
+
+
+if __name__ == "__main__":
+    min_max = min_max(parse_int_list(1)[0])
+    print("min: {}".format(min_max[0]))
+    print("max: {}".format(min_max[1]))
