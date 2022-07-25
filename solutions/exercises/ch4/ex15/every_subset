@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+# ch4_ex15_sc1
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+def get_every_subset(_set):
+    _set = list(_set)  # so iteration over the set occurs in a consistent order
+    _result = []
+
+    _get_every_subset(_set, _result, len(_set))
+
+    return _result
+
+
+def _get_every_subset(src, _result, n):
+    if n == 0:
+        _result.append({})
+    else:
+        _get_every_subset(src, _result, n - 1)
+        for i in range(len(_result)):
+            new_subset = set(_result[i])
+            new_subset.add(src[n - 1])
+            _result.append(new_subset)
+
+
+if __name__ == "__main__":
+    result = get_every_subset(set(parse_int_list(1)[0]))  # remove any duplicates in list
+    for subset in result:
+        print(subset)

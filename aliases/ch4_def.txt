@@ -1,0 +1,2 @@
+ex15 every_subset
+ex16 reverse_str
