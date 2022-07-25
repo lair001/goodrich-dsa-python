@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# ch4_ex22_sc1
+
+from sys import argv
+
+
+def power_iterative(x, n):
+    if n == 0:
+        return 1
+    result = x
+
+    i = n
+    while i > 1:
+        result *= result
+        i //= 2
+    if n > 1 and n & 1 == 1:
+        result *= x
+
+    return result
+
+
+if __name__ == "__main__":
+    print(power_iterative(int(argv[1]), int(argv[2])))
