@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# ch4_ex11_sc1
+
+from build.lib.solutions.libs.utils.argv import parse_list
+
+
+def unique(seq):
+    return _unique(seq, 0, 1)
+
+
+def _unique(seq, i, j):
+    if i == len(seq) - 1:
+        return True
+    elif j == len(seq):
+        return _unique(seq, i + 1, i + 2)
+    elif seq[i] == seq[j]:
+        return False
+    else:
+        return _unique(seq, i, j + 1)
+
+
+if __name__ == "__main__":
+    print(unique(parse_list(1)[0]))
