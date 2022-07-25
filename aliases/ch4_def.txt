@@ -1,2 +1,3 @@
 ex15 every_subset
 ex16 reverse_str
+ex17 is_palindrome

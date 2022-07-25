@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+# ch4_ex17_sc1
+
+from sys import argv
+
+
+def is_palindrome(s):
+    return _is_palindrome(s, 0, len(s))
+
+
+def _is_palindrome(s, start, stop):
+    if start >= stop - 1:
+        return True
+    elif s[start] != s[stop - 1]:
+        return False
+    else:
+        return _is_palindrome(s, start + 1, stop - 1)
+
+
+if __name__ == "__main__":
+    print(is_palindrome(argv[1]))
