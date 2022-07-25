@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+# ch4_ex18_sc1
+
+from sys import argv
+
+_vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+
+
+def has_more_vowels(s):
+    counts = _get_vowel_consonant_counts(s, len(s))
+    return counts[0] > counts[1]
+
+
+def _get_vowel_consonant_counts(s, n):
+    if n == 0:
+        return [0, 0]
+    else:
+        counts = _get_vowel_consonant_counts(s, n - 1)
+        if s[n - 1] in _vowels:
+            counts[0] += 1
+        elif 66 <= ord(s[n - 1]) <= 90 or 98 <= ord(s[n - 1]) <= 122:
+            counts[1] += 1
+        return counts
+
+
+if __name__ == "__main__":
+    print(has_more_vowels(argv[1]))
