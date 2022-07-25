@@ -1,4 +1,5 @@
 ex1 find_max
+ex6 harmonic
 ex9 min_max
 ex15 every_subset
 ex16 reverse_str

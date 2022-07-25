@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+# ch4_ex6_sc1
+
+from sys import argv
+
+
+def harmonic(n):
+    if n == 1:
+        return 1
+    else:
+        return 1 / n + harmonic(n - 1)
+
+
+if __name__ == "__main__":
+    print(harmonic(int(argv[1])))
