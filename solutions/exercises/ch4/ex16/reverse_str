@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+# ch4_ex16_sc1
+
+from sys import argv
+
+from solutions.libs.decorators.dynamic.ListDecorator import ListDecorator
+
+
+def reverse_str(s):
+    char_list = ListDecorator(list(s))
+    _reverse_str(char_list, 0, len(s))
+    return ''.join(char_list)
+
+
+def _reverse_str(char_list, start, stop):
+    if start < stop - 1:
+        char_list.swap(start, stop - 1)
+        _reverse_str(char_list, start + 1, stop - 1)
+
+
+if __name__ == "__main__":
+    print(reverse_str(argv[1]))
