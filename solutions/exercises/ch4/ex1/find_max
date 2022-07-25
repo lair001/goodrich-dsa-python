@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+# ch4_ex1_sc1
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+def find_max(int_seq):
+    return _find_max(int_seq, len(int_seq))
+
+
+def _find_max(int_seq, n):
+    if n == 0:
+        return None
+    elif n == 1:
+        return int_seq[0]
+    else:
+        return max(_find_max(int_seq, n - 1), int_seq[n - 1])
+
+
+if __name__ == "__main__":
+    print("max: {}".format(find_max(parse_int_list(1)[0])))
