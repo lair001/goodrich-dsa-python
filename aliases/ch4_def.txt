@@ -2,6 +2,7 @@ ex1 find_max
 ex6 harmonic
 ex7 str_to_int
 ex9 min_max
+ex10 lg_floor
 ex11 unique
 ex15 every_subset
 ex16 reverse_str
