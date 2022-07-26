@@ -11,4 +11,5 @@ ex17 is_palindrome
 ex18 has_more_vowels
 ex19 evens_first
 ex20 k_sort
+ex21 two_sum
 ex22 power_iterative

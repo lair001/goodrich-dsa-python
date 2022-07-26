@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+# ch4_ex21_sc1
+from sys import argv
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+def two_sum(sorted_seq, k):
+    return _two_sum(sorted_seq, k, 0, len(sorted_seq) - 1)
+
+
+def _two_sum(sorted_seq, k, lo, hi):
+    if lo >= hi:
+        return None, None
+    elif sorted_seq[lo] + sorted_seq[hi] == k:
+        return sorted_seq[lo], sorted_seq[hi]
+    elif sorted_seq[lo] + sorted_seq[hi] < k:
+        return _two_sum(sorted_seq, k, lo + 1, hi)
+    else:
+        return _two_sum(sorted_seq, k, lo, hi - 1)
+
+
+if __name__ == "__main__":
+    current_index = 1
+    seq, current_index = parse_int_list(1)
+    print(two_sum(sorted(seq), int(argv[current_index])))
