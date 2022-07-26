@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+# ch4_ex23_sc1
+
+import os
+import re
+from sys import argv
+
+
+def find(path, filename):
+    entries = []
+    filepattern = "^" + re.escape(filename).replace("\\*", ".*") + "$"
+    _find(path, filepattern, entries)
+    return entries
+
+
+def _find(path, filepattern, entries):
+    if re.match(filepattern, os.path.basename(path)):
+        entries.append(path)
+    if os.path.isdir(path):
+        for child_name in os.listdir(path):
+            child_path = os.path.join(path, child_name)
+            _find(child_path, filepattern, entries)
+
+
+if __name__ == "__main__":
+    # if no args are provided, we're going to search the exercises folder for all *.md files
+    path = argv[1] if len(argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    filename = argv[2] if len(argv) > 2 else "*.md"
+    result = find(path, filename)
+    for _path in result:
+        print(_path)
