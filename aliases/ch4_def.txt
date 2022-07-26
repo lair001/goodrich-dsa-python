@@ -4,6 +4,7 @@ ex7 str_to_int
 ex9 min_max
 ex10 lg_floor
 ex11 unique
+ex12 product
 ex15 every_subset
 ex16 reverse_str
 ex17 is_palindrome
