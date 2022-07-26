@@ -14,3 +14,4 @@ ex20 k_sort
 ex21 two_sum
 ex22 power_iterative
 ex23 find_file
+ex27 walk_path
