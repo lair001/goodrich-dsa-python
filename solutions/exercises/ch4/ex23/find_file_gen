@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+# ch4_ex23_sc2
+
+import os
+import re
+from sys import argv
+
+
+# A generator based solution
+# This eliminates the memory cost of the entries list
+def find(path, filename):
+    filepattern = "^" + re.escape(filename).replace("\\*", ".*") + "$"
+    yield from _find(path, filepattern)
+
+
+def _find(path, filepattern):
+    if re.match(filepattern, os.path.basename(path)):
+        yield path
+    if os.path.isdir(path):
+        for child_name in os.listdir(path):
+            child_path = os.path.join(path, child_name)
+            yield from _find(child_path, filepattern)
+
+
+if __name__ == "__main__":
+    # if no args are provided, we're going to search the exercises folder for all *.md files
+    path = argv[1] if len(argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    filename = argv[2] if len(argv) > 2 else "*.md"
+    result = find(path, filename)
+    for _path in result:
+        print(_path)
