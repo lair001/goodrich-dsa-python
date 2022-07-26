@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+# ch4_ex20_sc1
+from sys import argv
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+def k_sort(seq, k):
+    return _k_sort(seq, k, 0, len(seq) - 1)
+
+def _k_sort(seq, k, lo, hi):
+    if seq[lo] <= k:
+        return _k_sort(seq, k, lo + 1, hi)
+    elif lo >= hi:
+        return seq
+    elif seq[hi] <= k:
+        seq[lo], seq[hi] = seq[hi], seq[lo]
+        return _k_sort(seq, k, lo + 1, hi - 1)
+    else:
+        return _k_sort(seq, k, lo, hi - 1)
+
+if __name__ == "__main__":
+    current_index = 1
+    seq, current_index = parse_int_list(1)
+    print(k_sort(seq, int(argv[current_index])))

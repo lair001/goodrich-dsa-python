@@ -10,5 +10,6 @@
         <b>return</b> Maximum of S[n-1] and FindMax(S[0:n-1])
 </code></pre>
 
-This recursive algorithm has $\theta(n)$ time and space complexity. Each element is considered once and the algorithm makes $n-1$ recursive calls to itself. However, the underlying problem has $\theta(n)$ time and $\theta(1)$ space complexity since it can be solved using an iterative algorithm with constant memory usage.
-
+This recursive algorithm has $\theta(n)$ time and space complexity. Each element is considered once and the algorithm
+makes $n-1$ recursive calls to itself. However, the underlying problem has $\theta(n)$ time and $\theta(1)$ space
+complexity since it can be solved using an iterative algorithm with constant memory usage.

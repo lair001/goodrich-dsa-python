@@ -10,4 +10,5 @@ ex16 reverse_str
 ex17 is_palindrome
 ex18 has_more_vowels
 ex19 evens_first
+ex20 k_sort
 ex22 power_iterative
