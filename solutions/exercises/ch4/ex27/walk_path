@@ -3,7 +3,6 @@
 # ch4_ex27_sc1
 
 import os
-import re
 from sys import argv
 
 def walk(path):
