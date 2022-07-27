@@ -16,4 +16,5 @@ ex21 two_sum
 ex22 power_iterative
 ex23 find_file
 ex23 find_file_gen
+ex24 puzzle_solve
 ex27 walk_path

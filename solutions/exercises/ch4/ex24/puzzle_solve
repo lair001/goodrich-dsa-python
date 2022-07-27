@@ -1,0 +1,95 @@
+#!/usr/bin/env python
+
+# ch4_ex24_sc1
+
+from sys import argv
+
+# We are going to assuming the following format for eq_args:
+# eq_args[0] is the first operand
+# eq_args[1] is the operator, either + or -
+# eq_args[2] is the second operand
+# eq_args[3] is an equals sign
+# eq_args[4] is the result
+
+# We are also going to assume there are 10 or fewer unique letters
+# in the equation so a solution can be tested using base 10 arithmetic.
+class PuzzleSolver:
+    def __init__(self, eq_args):
+        self._eq_args = eq_args
+        # we start by building a map associating letters with indices in a solution set to aid in solution checking
+        self._letters_to_indices = {}
+        i = 0;
+        for arg in [self._eq_args[0], self._eq_args[2], self._eq_args[4]]:
+            for char in arg:
+                if char not in self._letters_to_indices.keys():
+                    self._letters_to_indices[char] = i
+                    i += 1
+        if i > 10:
+            raise ValueError("A puzzle can have no more than 10 unique characters!")
+
+    def solve(self):
+        k = len(self._letters_to_indices.keys())
+        U = list(range(k + 1))
+        solution = self._solve(k, [], U)
+
+        if solution is None:
+            return "There is no solution!"
+
+        human_friendly_solution = ""
+
+        for char in self._eq_args[0]:
+            human_friendly_solution += str(solution[self._letters_to_indices[char]])
+
+        human_friendly_solution += " " + self._eq_args[1] + " "
+
+        for char in self._eq_args[2]:
+            human_friendly_solution += str(solution[self._letters_to_indices[char]])
+
+        human_friendly_solution += " = "
+
+        for char in self._eq_args[4]:
+            human_friendly_solution += str(solution[self._letters_to_indices[char]])
+
+        return human_friendly_solution
+
+    def _solve(self, k, S, U):
+        for i in range(len(U)):
+            S_prime = S + [U[i]]
+            U_prime = U[:i] + U[i + 1:]
+            if k == 1:
+                if self._is_solution(S_prime):
+                    return S_prime
+            else:
+                result = self._solve(k - 1, S_prime, U_prime)
+                if result is not None:
+                    return result
+
+    def _is_solution(self, S):
+        operand_1 = 0
+
+        for char in self._eq_args[0]:
+            operand_1 *= 10
+            operand_1 += S[self._letters_to_indices[char]]
+
+        operand_2 = 0
+
+        for char in self._eq_args[2]:
+            operand_2 *= 10
+            operand_2 += S[self._letters_to_indices[char]]
+
+        result = 0
+
+        for char in self._eq_args[4]:
+            result *= 10
+            result += S[self._letters_to_indices[char]]
+
+        if self._eq_args[1] == "+":
+            return operand_1 + operand_2 == result
+        elif self._eq_args[1] == "-":
+            return operand_1 - operand_2 == result
+        else:
+            raise ValueError("Operator must be + or -!")
+
+
+if __name__ == "__main__":
+    print(PuzzleSolver(argv[1:]).solve())
