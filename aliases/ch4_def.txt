@@ -1,6 +1,7 @@
 ex1 find_max
 ex6 harmonic
 ex7 str_to_int
+ex8 binary_sum
 ex9 min_max
 ex10 lg_floor
 ex11 unique
