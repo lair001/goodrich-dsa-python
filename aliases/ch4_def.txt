@@ -18,4 +18,5 @@ ex23 find_file
 ex23 find_file_gen
 ex24 puzzle_solve
 ex25 english_ruler
+ex26 tower_of_hanoi
 ex27 walk_path
