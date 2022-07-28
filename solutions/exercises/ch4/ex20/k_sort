@@ -5,8 +5,10 @@ from sys import argv
 
 from build.lib.solutions.libs.utils.argv import parse_int_list
 
+
 def k_sort(seq, k):
     return _k_sort(seq, k, 0, len(seq) - 1)
+
 
 def _k_sort(seq, k, lo, hi):
     if seq[lo] <= k:
@@ -18,6 +20,7 @@ def _k_sort(seq, k, lo, hi):
         return _k_sort(seq, k, lo + 1, hi - 1)
     else:
         return _k_sort(seq, k, lo, hi - 1)
+
 
 if __name__ == "__main__":
     current_index = 1
