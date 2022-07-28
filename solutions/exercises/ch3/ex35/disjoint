@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+# ch4_ex27
+
+from sys import argv
+from solutions.libs.utils.argv import parse_list
+
+
+def disjoint(A, B, C):
+    A = sorted(A)
+    B = sorted(B)
+    C = sorted(C)
+
+    ap = 0
+    bp = 0
+    cp = 0
+
+    while ap < len(A) and bp < len(B) and cp < len(C):
+        values = sorted([A[ap], B[bp], C[cp]])
+        if values[0] == values[2]:
+            return False
+        elif values[0] == A[ap]:
+            ap += 1
+        elif values[0] == B[bp]:
+            bp += 1
+        else:
+            cp += 1
+    return True
+
+
+if __name__ == "__main__":
+    current_index = 1
+    A, current_index = parse_list(current_index)
+    # sorted will convert this back into a list, but this step
+    # will at least remove any duplicates in A
+    A = set(A)
+    B, current_index = parse_list(current_index)
+    B = set(B)
+    C = set(parse_list(current_index)[0])
+    print(disjoint(A, B, C))
