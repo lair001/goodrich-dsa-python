@@ -17,4 +17,5 @@ ex22 power_iterative
 ex23 find_file
 ex23 find_file_gen
 ex24 puzzle_solve
+ex25 english_ruler
 ex27 walk_path

@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+# ch4_ex24_sc1
+
+from sys import argv
+
+
+class EnglishRuler:
+
+    def draw(self, inches, major_len):
+        self._draw_line(major_len, '0')
+        for i in range(1, 1 + inches):
+            self._draw_interval(major_len - 1)
+            self._draw_line(major_len, str(i))
+
+    def _draw_line(self, tick_len, tick_label=''):
+        line = '-' * tick_len
+        if tick_label:
+            line += ' ' + tick_label
+        print(line)
+
+    def _draw_interval(self, center_length):
+        for i in range(2 ** center_length - 1):
+            tick_length = 1
+            j = i
+            while j & 1 == 1:
+                tick_length += 1
+                j >>= 1
+            self._draw_line(tick_length)
+
+if __name__ == "__main__":
+    EnglishRuler().draw(int(argv[1]), int(argv[2]))
