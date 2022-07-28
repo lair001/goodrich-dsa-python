@@ -8,5 +8,4 @@ sys_path.insert(0, os_path.join(os_path.dirname(__file__), "aliases"))
 
 from aliases.util import get_alias_list
 
-print()
 print(get_alias_list(argv[1] if len(argv) > 1 else ""))

@@ -2,6 +2,7 @@ ex1 find_max
 ex6 harmonic
 ex7 str_to_int
 ex8 binary_sum
+
 ex9 min_max
 ex10 lg_floor
 ex11 unique
@@ -14,6 +15,7 @@ ex19 evens_first
 ex20 k_sort
 ex21 two_sum
 ex22 power_iterative
+
 ex23 find_file
 ex23 find_file_gen
 ex24 puzzle_solve

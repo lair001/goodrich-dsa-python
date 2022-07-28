@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-# ch1_ex22_sc1
+# ch1_ex22
 
 from random import randint
 from solutions.libs.utils.argv import parse_int_list
+
 
 def dot_product(vector_a, vector_b):
     assert len(vector_a) == len(vector_b)

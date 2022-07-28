@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 
-# ch1_ex8_sc1
+# ch1_ex8
 
 import sys, re
 from solutions.libs.utils.argv import parse_int_list
+
 
 def equivalent_index(k, seq):
     n = len(seq)
     return k + n if k < 0 else k - n
 
+
 if __name__ == "__main__":
     k = int(sys.argv[1])
     seq = parse_int_list(2)[0]
     l = equivalent_index(k, seq)
-    print("seq[%i] is %sequal to seq[%i]" %(k, "" if seq[k] == seq[l] else "not", l))
+    print("seq[%i] is %sequal to seq[%i]" % (k, "" if seq[k] == seq[l] else "not", l))

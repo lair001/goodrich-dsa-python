@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-# ch1_ex27_sc2
+# ch1_ex27_2
 
 from sys import argv
+
 
 def increasing_factors(n):
     k = 1
@@ -18,6 +19,7 @@ def increasing_factors(n):
             yield n // k
         k -= 1
 
+
 if __name__ == "__main__":
     n = int(argv[1])
-    print("The factors of %i in increasing order are: %s" %(n, list(increasing_factors(n))))
+    print("The factors of %i in increasing order are: %s" % (n, list(increasing_factors(n))))

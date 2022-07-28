@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
-# ch4_ex12_sc1
+# ch4_ex12
 
 from sys import argv
 
+
 def product(m, n):
     return _product(max(m, n), min(m, n))
+
 
 def _product(m, n):
     if n == 0:
@@ -14,6 +16,7 @@ def _product(m, n):
         return m
     else:
         return m + _product(m, n - 1)
+
 
 if __name__ == "__main__":
     print(product(int(argv[1]), int(argv[2])))

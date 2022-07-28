@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch2_ex32_sc1
+# ch2_ex32
 
 from math import sqrt
 from sys import argv

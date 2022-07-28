@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-# ch2_ex13_sc1
+# ch2_ex13
 
 from numbers import Real
 from sys import argv
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
 from solutions.libs.utils.argv import parse_int_list
+
 
 class Vector(Ch2Vector):
     def __mul__(self, scalar):
@@ -26,6 +27,7 @@ class Vector(Ch2Vector):
         else:
             return NotImplemented
 
+
 if __name__ == "__main__":
     if argv[1].lstrip('-+').isdigit():
         scalar = int(argv[1])
@@ -39,4 +41,3 @@ if __name__ == "__main__":
 
     print("%s * %s = %s" % (scalar, vector_v, scalar * vector_v))
     print("%s * %s = %s" % (vector_v, scalar, vector_v * scalar))
-

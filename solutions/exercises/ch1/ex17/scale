@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
-# ch1_ex17_sc1
+# ch1_ex17
 
 import sys
 from solutions.libs.utils.argv import parse_int_list
+
 
 def scale(data, factor):
     for val in data:
         val *= factor
     return data
+
 
 if __name__ == "__main__":
     current_index = 1

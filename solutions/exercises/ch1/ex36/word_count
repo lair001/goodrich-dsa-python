@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-# ch1_ex36_sc1
+# ch1_ex36
 
 import re
+
 
 def word_count(whitespace_deliminated_list):
     counts = {}
@@ -10,6 +11,7 @@ def word_count(whitespace_deliminated_list):
     for word in words:
         counts[word] = counts.get(word, 0) + 1
     return counts
+
 
 if __name__ == "__main__":
     print(word_count(input("Please enter a list of words separated by whitespace: ")))

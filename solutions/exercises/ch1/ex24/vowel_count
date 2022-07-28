@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex24_sc1
+# ch1_ex24
 
 def vowel_count(string):
     vowels = "aeiou"
@@ -10,5 +10,6 @@ def vowel_count(string):
             count += 1
     return count
 
+
 if __name__ == "__main__":
-    print("Number of vowels: %i" %(vowel_count(input("Please enter a string: "))))
+    print("Number of vowels: %i" % (vowel_count(input("Please enter a string: "))))

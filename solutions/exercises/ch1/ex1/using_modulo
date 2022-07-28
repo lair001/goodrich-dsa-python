@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
-# ch1_ex1_sc1
+# ch1_ex1
 
 import sys
+
 
 def is_multiple(n, m):
     return n % m == 0
 
+
 if __name__ == "__main__":
     n = int(sys.argv[1])
     m = int(sys.argv[2])
-    print("%i is %sa multiple of %i." %(n, "" if is_multiple(n, m) else "not ", m))
+    print("%i is %sa multiple of %i." % (n, "" if is_multiple(n, m) else "not ", m))

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch4_ex25_sc1
+# ch4_ex25
 
 from sys import argv
 
@@ -27,6 +27,7 @@ class EnglishRuler:
                 tick_length += 1
                 j >>= 1
             self._draw_line(tick_length)
+
 
 if __name__ == "__main__":
     EnglishRuler().draw(int(argv[1]), int(argv[2]))

@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
-# ch1_ex2_sc1
+# ch1_ex2
 
 import sys
+
 
 def is_even(k):
     return k & 1 == 0
 
+
 if __name__ == "__main__":
     k = int(sys.argv[1])
-    print("%i is %s." %(k, "even" if is_even(k) else "odd"))
+    print("%i is %s." % (k, "even" if is_even(k) else "odd"))

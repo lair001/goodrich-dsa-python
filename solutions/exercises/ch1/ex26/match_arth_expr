@@ -1,24 +1,26 @@
 #!/usr/bin/env python
 
-# ch1_ex26_sc1
+# ch1_ex26
 
 from sys import argv
 
+
 def match_arth_expr(a, b, c):
     if a + b == c:
-        return "%i + %i = %i" %(a, b, c)
+        return "%i + %i = %i" % (a, b, c)
     elif a == b + c:
-        return "%i = %i + %i" %(a, b, c)
+        return "%i = %i + %i" % (a, b, c)
     elif a - b == c:
         return "%i - %i = %i" % (a, b, c)
     elif a == b - c:
-        return "%i = %i - %i" %(a, b, c)
+        return "%i = %i - %i" % (a, b, c)
     elif a * b == c:
         return "%i * %i = %i" % (a, b, c)
     elif a == b * c:
-        return "%i = %i * %i" %(a, b, c)
+        return "%i = %i * %i" % (a, b, c)
     else:
-        return "%i, %i, and %i do not match an arithmetic expression." %(a, b, c)
+        return "%i, %i, and %i do not match an arithmetic expression." % (a, b, c)
+
 
 if __name__ == "__main__":
     a, b, c = map(int, argv[1:4])

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex21_sc1
+# ch1_ex21
 
 def read_lines():
     lines = []
@@ -10,6 +10,7 @@ def read_lines():
         except EOFError:
             break;
     return lines
+
 
 def print_lines_in_reverse(lines):
     print("")

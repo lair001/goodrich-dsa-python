@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-# ch1_ex31_sc1
+# ch1_ex31
 
 from sys import argv
 
 decreasing_values = [100.0, 50.0, 20.0, 10.0, 5.0, 2.0, 1.0, 0.5, 0.25, 0.1, 0.05, 0.01]
+
 
 def make_us_change(charged, given):
     assert charged <= given
@@ -13,7 +14,7 @@ def make_us_change(charged, given):
     remaining_change = total_change
 
     denominations = {
-        '100.0' : { 'plural' : 'hundred-dollar bills', 'count' : 0 },
+        '100.0': {'plural': 'hundred-dollar bills', 'count': 0},
         '50.0': {'plural': 'fifty-dollar bills', 'count': 0},
         '20.0': {'plural': 'twenty-dollar bills', 'count': 0},
         '10.0': {'plural': 'ten-dollar bills', 'count': 0},
@@ -44,6 +45,6 @@ if __name__ == "__main__":
         count = denomination['count']
         if count > 0:
             bill_count += count
-            print("%s: %i" %(denomination['plural'], count))
-    print("total change: $%.2f" %total_change)
-    print("total number of bills and coins: %i" %bill_count)
+            print("%s: %i" % (denomination['plural'], count))
+    print("total change: $%.2f" % total_change)
+    print("total number of bills and coins: %i" % bill_count)

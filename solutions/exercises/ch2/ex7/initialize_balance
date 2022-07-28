@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
-# ch2_ex7_sc1
+# ch2_ex7
 
 from sys import argv
 from solutions.fragments.ch2.CreditCard import CreditCard as Ch2CreditCard
+
 
 class CreditCard(Ch2CreditCard):
     def __init__(self, customer, bank, acnt, limit, balance=0):
         super().__init__(customer, bank, acnt, limit)
         self._balance = balance
+
 
 if __name__ == "__main__":
     balance = float(argv[1]) if len(argv) > 1 else None

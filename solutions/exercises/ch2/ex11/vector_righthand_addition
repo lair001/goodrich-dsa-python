@@ -1,19 +1,21 @@
 #!/usr/bin/env python
 
-# ch2_ex11_sc1
+# ch2_ex11
 
 from solutions.fragments.ch2.Vector import Vector as Ch2Vector
 from solutions.libs.utils.argv import parse_int_list
 
+
 class Vector(Ch2Vector):
     def __radd__(self, other):
         """Return sum of two vectors."""
-        if len(self) != len(other): # relies on len method
+        if len(self) != len(other):  # relies on len method
             raise ValueError('dimensions must agree')
-        result = Vector(len(self)) # start with vector of zeros
+        result = Vector(len(self))  # start with vector of zeros
         for j in range(len(self)):
             result[j] = self[j] + other[j]
         return result
+
 
 if __name__ == "__main__":
     seq_a = [5, 3, 10, -2, 1]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch2_ex5_sc1
+# ch2_ex5
 
 from sys import argv
 from solutions.fragments.ch2.CreditCard import CreditCard as Ch2CreditCard
@@ -19,6 +19,7 @@ class CreditCard(Ch2CreditCard):
             raise TypeError('Amount must be a real number!')
         else:
             return super().make_payment(amount)
+
 
 if __name__ == "__main__":
     price, amount = argv[1], argv[2]

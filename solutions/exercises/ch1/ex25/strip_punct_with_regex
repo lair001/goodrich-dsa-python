@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
-# ch1_ex25_sc2
+# ch1_ex25_2
 
 import re
 
+
 def strip_punct_with_regex(string):
     return re.sub(r"[\[\]!\"#$%&'()*+,./:;<=>?@\\^_`{|}~\-]", "", string)
+
 
 if __name__ == "__main__":
     print(strip_punct_with_regex(input("Please enter a string: ")))

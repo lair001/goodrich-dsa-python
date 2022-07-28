@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch4_ex23_sc1
+# ch4_ex23
 
 import os
 import re

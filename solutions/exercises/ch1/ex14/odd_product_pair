@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-# ch1_ex14_sc1
+# ch1_ex14
 
 from solutions.libs.utils.argv import parse_int_list
+
 
 def odd_product_pair(seq):
     pair = []
@@ -13,12 +14,14 @@ def odd_product_pair(seq):
                 break;
     return len(pair) == 2, pair
 
+
 def has_odd_product_pair(seq):
     return odd_product_pair(seq)[0]
+
 
 if __name__ == "__main__":
     seq = parse_int_list(1)[0]
     result = odd_product_pair(seq)
-    print("%s %s a pair whose product is odd." %(seq, "has" if result[0] else "does not have"))
+    print("%s %s a pair whose product is odd." % (seq, "has" if result[0] else "does not have"))
     if result[0]:
-        print("%i x %i = %i" %(result[1][0], result[1][1], result[1][0] * result[1][1]))
+        print("%i x %i = %i" % (result[1][0], result[1][1], result[1][0] * result[1][1]))

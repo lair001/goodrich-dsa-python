@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
-# ch1_ex4_sc1
+# ch1_ex4
 
 import sys
+
 
 def sum_of_squares(limit):
     assert isinstance(limit, int) and limit > 0
     n = limit - 1
-    return n * (n + 1) * (2*n + 1) / 6
+    return n * (n + 1) * (2 * n + 1) / 6
+
 
 if __name__ == "__main__":
     limit = int(sys.argv[1])
-    print("Sum of the squares of all positive integers less than %i: %i" %(limit, sum_of_squares(limit)))
+    print("Sum of the squares of all positive integers less than %i: %i" % (limit, sum_of_squares(limit)))

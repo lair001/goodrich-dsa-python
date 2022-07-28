@@ -16,6 +16,7 @@ def get_alias_list(chapter):
 
     result = ""
     for chapter_aliases in aliases.values():
+        result += newline
         for alias, path in chapter_aliases.items():
             result += "{:14s} {:s}".format(alias, os_path.basename(path)) + newline
 
@@ -27,7 +28,9 @@ def add_alias(chapter, exercise, filename):
 
     i = 1
     while True:
-        alias = "{}_{}_sc{}".format(chapter, exercise, i)
+        alias = "{}_{}".format(chapter, exercise)
+        if i > 1:
+            alias = "{}_{}".format(alias, i)
         if alias not in aliases[chapter].keys():
             aliases[chapter][alias] = os_path.join("solutions", "exercises", chapter, exercise, filename)
             return alias

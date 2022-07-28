@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-# ch4_ex24_sc1
+# ch4_ex24
 
 from sys import argv
+
 
 # We are going to assuming the following format for eq_args:
 # eq_args[0] is the first operand
