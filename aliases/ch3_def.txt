@@ -3,4 +3,5 @@ ex35 disjoint
 ex36 ten_largest
 ex41 min_max
 ex45 find_missing_num
+ex53 wine_tasting
 ex54 most_freq

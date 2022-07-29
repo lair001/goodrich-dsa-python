@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+# ch3_ex54
+import random
+from sys import argv
+from math import log2
+from math import ceil
+
+
+# We index the wine bottles and assign each taster a bit in the binary representation of the indices
+# We then construct the binary representation of the index of the poisoned bottle based on which
+# tasters died. If the bottle at index 0 is poisoned, no-one dies! Hurray!
+
+# As for simulating the poison, the poisoned bottle has a value of 1 while the rest of a value of zero
+# Tasters all start with a value of 0. They drink by adding the values of all of their assigned bottles
+# to their value. At the end of the simulation, the dead tasters have value of 1 while the surviving
+# tasters all have a value of zero.
+def wine_tasting(n, p):
+    wines = [0] * n
+    tasters = [0] * ceil(log2(n))
+
+    wines[p] = 1
+
+    for i in range(len(wines)):
+        for j in range(len(tasters)):
+            if (i >> j) & 1 == 1:
+                tasters[j] += wines[i]
+
+    index_of_poisoned_bottle = 0
+    digit_value = 1
+    for j in range(len(tasters)):
+        index_of_poisoned_bottle += digit_value * tasters[j]
+        digit_value *= 2
+
+    return index_of_poisoned_bottle
+
+
+if __name__ == "__main__":
+    n = int(argv[1])
+    print("Bottle #{} is poisoned!".format(
+        # Add one to the result to convert from list index to natural counting
+        # If your local king counts from 0 instead of 1, feel free to remove the + 1
+        wine_tasting(n, (int(argv[2]) if len(argv) > 2 else random.randrange(0, n))) + 1))
