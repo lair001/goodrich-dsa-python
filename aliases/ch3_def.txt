@@ -3,3 +3,4 @@ ex35 disjoint
 ex36 ten_largest
 ex41 min_max
 ex45 find_missing_num
+ex54 most_freq

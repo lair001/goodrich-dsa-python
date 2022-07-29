@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+# ch3_ex54
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+# There is a variant of this problem where S is guaranteed to have at least
+# as many elements as are in the source interval. This allows us to achieve
+# a memory complexity of O(1) by mutating S in a way that's reversible once
+# k is found. However, the prompt makes no such guarantee, so we can't rely
+# on this trick.
+
+# This algorithm has time and memory complexity of O(n)
+def most_freq(S):
+    counts = [0] * (len(S) + 1)
+    for num in S:
+        counts[num] += 1
+
+    k = 0
+    max_count = counts[0]
+    for i in range(1, len(counts)):
+        if counts[i] > max_count:
+            k = i
+            max_count = counts[i]
+
+    return k
+
+
+if __name__ == "__main__":
+    print(most_freq(parse_int_list(1)[0]))
