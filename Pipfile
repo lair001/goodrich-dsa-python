@@ -5,6 +5,7 @@ name = "pypi"
 
 [dev-packages]
 pytest = "*"
+matplotlib = "*"
 
 [packages]
 setuptools = "==63.2.0"
