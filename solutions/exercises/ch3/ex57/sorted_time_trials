@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+# ch3_ex57
+
+import random
+import time
+from math import log2
+
+
+def run_trials():
+    n = 1024
+    T = 200
+
+    while n <= 16777216:
+
+        a = list(range(n))
+        total_time = 0
+        for _ in range(T):
+            random.shuffle(a)
+            starting_time = time.thread_time_ns()
+            sorted(a)
+            total_time += time.thread_time_ns() - starting_time
+        avg_time = total_time / T
+        growth_ratio = avg_time / (n * log2(n))
+
+        print("{:8d} {:5.2f}".format(n, growth_ratio))
+
+        n *= 2
+
+
+if __name__ == "__main__":
+    run_trials()

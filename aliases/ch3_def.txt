@@ -5,3 +5,4 @@ ex41 min_max
 ex45 find_missing_num
 ex53 wine_tasting
 ex54 most_freq
+ex57 sorted_time_trials
