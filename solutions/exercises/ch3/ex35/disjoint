@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-# ch4_ex27
+# ch3_ex35
 
-from sys import argv
 from solutions.libs.utils.argv import parse_list
 
 

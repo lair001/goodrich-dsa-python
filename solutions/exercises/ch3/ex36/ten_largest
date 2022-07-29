@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+# ch3_ex36
+
+from solutions.libs.utils.argv import parse_list
+
+
+# If you know about heaps, you may be tempted to use one for this
+# problem. However, inserting an element into a heap has time complexity
+# O(lg(n)) so such an approach would not be an improvement over the
+# following solution
+
+def ten_largest(a):
+    if len(a) <= 10:
+        return a
+    a = sorted(a)
+    return a[len(a) - 10:]
+
+
+if __name__ == "__main__":
+    print(ten_largest(parse_list(1)[0]))
