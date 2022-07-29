@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+# ch3_ex45
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+def find_missing_num(S):
+    nm1 = len(S)
+    expected_sum = nm1 * (nm1 + 1) // 2
+
+    actual_sum = 0
+
+    for num in S:
+        actual_sum += num
+
+    return expected_sum - actual_sum
+
+
+if __name__ == "__main__":
+    print(find_missing_num(parse_int_list(1)[0]))
