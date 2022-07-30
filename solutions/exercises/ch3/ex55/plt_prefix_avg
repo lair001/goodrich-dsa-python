@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+
+# ch3_ex57
+
+import random
+import time
+from math import log2, floor
+
+from matplotlib import pyplot as plt
+
+from solutions.fragments.ch3.prefix_average1 import prefix_average1
+from solutions.fragments.ch3.prefix_average2 import prefix_average2
+from solutions.fragments.ch3.prefix_average3 import prefix_average3
+
+
+def run_trials():
+    n = 1024
+    T = 200
+
+    n_vals = []
+    algs = {
+        "prefix_average1": {
+            "method": prefix_average1,
+            "vals": []
+        },
+        "prefix_average2": {
+            "method": prefix_average2,
+            "vals": []
+        },
+        "prefix_average3": {
+            "method": prefix_average3,
+            "vals": []
+        }
+    }
+
+    while n <= 8192:
+        n_vals.append(n)
+        a = list(range(n))
+        for alg in algs.keys():
+            total_time = 0
+            for _ in range(T):
+                random.shuffle(a)
+                starting_time = time.thread_time_ns()
+                algs[alg]["method"](a)
+                total_time += time.thread_time_ns() - starting_time
+            algs[alg]["vals"].append(total_time/T)
+        # We won't get enough plot points in a reasonable time for the quadratic algs if
+        # we double n each time, so we need to get a bit creative.
+        n = floor(n * 1.2)
+
+    plt.xlabel("n")
+    plt.ylabel("avg runtime (ns)")
+    legends = []
+    for alg in algs.keys():
+        plt.loglog(n_vals, algs[alg]["vals"])
+        legends.append(alg)
+    plt.gca().legend(legends)
+    plt.show()
+
+
+if __name__ == "__main__":
+    run_trials()

@@ -10,6 +10,7 @@ matplotlib = "*"
 [packages]
 setuptools = "==63.2.0"
 "e1839a8" = {path = ".", editable = true}
+matplotlib = "*"
 
 [requires]
 python_version = "3.10.5"
