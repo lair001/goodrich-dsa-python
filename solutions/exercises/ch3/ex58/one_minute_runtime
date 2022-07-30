@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+
+# ch3_ex58
+import time
+from math import factorial
+from sys import setrecursionlimit
+
+from solutions.fragments.ch3.unique1 import unique1
+from solutions.fragments.ch3.unique2 import unique2
+from solutions.fragments.ch4.unique3 import unique3
+
+
+def one_minute_runtime(alg, min_n, max_n):
+    while min_n < max_n:
+        mid = (min_n + max_n) // 2
+        # Going to test unique lists to ensure worst case runtime
+        # Also, not going to do 200 trials for these. If we did, the program would run at least 200 minutes
+        # per algorithm and that's if we guess the right n the first time
+        a = list(range(mid))
+        start_time = time.thread_time()
+        alg(a)
+        runtime = time.thread_time() - start_time
+        if runtime < 60.0:
+            min_n = mid + 1
+        elif runtime > 60.0:
+            max_n = mid - 1
+        else:
+            return mid
+
+    return min_n
+
+
+if __name__ == "__main__":
+    algs = {
+        # O(n^2)
+        "unique1": {
+            "method": unique1,
+            "min_n": 32768,
+            "max_n": 65536
+        },
+        # O(nlg(n))
+        # Does your computer have enough memory to try this one?
+        "unique2": {
+            "method": unique2,
+            "min_n": 134217728,
+            "max_n": 268435456
+        },
+        # O(2^n)
+        "unique3": {
+            "method": unique3,
+            "min_n": 25,
+            "max_n": 32
+        }
+    }
+
+    for alg in algs.keys():
+        setrecursionlimit(factorial(12))
+        print("{}: {}".format(alg, one_minute_runtime(algs[alg]["method"], algs[alg]["min_n"], algs[alg]["max_n"])))
