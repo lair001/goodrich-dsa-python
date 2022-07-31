@@ -5,9 +5,8 @@ import time
 from math import factorial
 from sys import setrecursionlimit
 
-from solutions.fragments.ch3.unique1 import unique1
-from solutions.fragments.ch3.unique2 import unique2
-from solutions.fragments.ch4.unique3 import unique3
+from solutions.vendor.ch03.unique import unique2, unique1
+from solutions.vendor.ch04 import unique_bad
 
 
 def one_minute_runtime(alg, min_n, max_n):
@@ -47,7 +46,7 @@ if __name__ == "__main__":
         },
         # O(2^n)
         "unique3": {
-            "method": unique3,
+            "method": unique_bad,
             "min_n": 25,
             "max_n": 32
         }

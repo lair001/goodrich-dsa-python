@@ -3,7 +3,7 @@
 # ch2_ex7
 
 from sys import argv
-from solutions.fragments.ch2.CreditCard import CreditCard as Ch2CreditCard
+from solutions.vendor.ch02.credit_card import CreditCard as Ch2CreditCard
 
 
 class CreditCard(Ch2CreditCard):

@@ -3,7 +3,8 @@
 # ch2_ex18
 
 from sys import argv
-from solutions.fragments.ch2.FibonacciProgression import FibonacciProgression
+
+from solutions.vendor.ch02.progressions import FibonacciProgression
 
 if __name__ == "__main__":
     n = int(argv[1]) if len(argv) > 1 else 8

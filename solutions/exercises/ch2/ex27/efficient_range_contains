@@ -3,7 +3,7 @@
 # ch2_ex27
 
 from sys import argv
-from solutions.fragments.ch2.Range import Range as Ch2Range
+from solutions.vendor.ch02.range import Range as Ch2Range
 
 
 class Range(Ch2Range):

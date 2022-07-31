@@ -3,7 +3,7 @@
 # ch2_ex23
 
 from solutions.libs.utils.argv import parse_list
-from solutions.fragments.ch2.Sequence import Sequence as Ch2Sequence
+from solutions.vendor.ch02.sequence_abc import Sequence as Ch2Sequence
 
 
 class Sequence(Ch2Sequence):

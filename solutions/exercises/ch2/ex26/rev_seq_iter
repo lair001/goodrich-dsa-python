@@ -2,7 +2,7 @@
 
 # ch2_ex26
 
-from solutions.fragments.ch2.SequenceIterator import SequenceIterator as Ch2SequenceIterator
+from solutions.vendor.ch02.sequence_iterator import SequenceIterator as Ch2SequenceIterator
 from solutions.libs.utils.argv import parse_list
 
 

@@ -3,7 +3,7 @@
 # ch2_ex19
 
 from sys import argv
-from solutions.fragments.ch2.ArithmeticProgression import ArithmeticProgression
+from solutions.vendor.ch02.progressions import ArithmeticProgression
 
 if __name__ == "__main__":
     n = int(argv[1]) if len(argv) > 1 else 63

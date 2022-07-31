@@ -19,10 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# WARNING: this is a terribly inefficient algorithm
-def unique3(S, start, stop):
-  """Return True if there are no duplicate elements in slice S[start:stop]."""
-  if stop - start <= 1: return True                # at most one item
-  elif not unique3(S, start, stop-1): return False  # first part has duplicate
-  elif not unique3(S, start+1, stop): return False  # second part has duplicate
-  else: return S[start] != S[stop-1]               # do first and last differ?
+def find_max(data):
+    """Return the maximum element from a nonempty Python list."""
+    biggest = data[0]  # The initial value to beat
+    for val in data:  # For each value:
+        if val > biggest:  # if it is greater than the best so far,
+            biggest = val  # we have found a new best (so far)
+    return biggest  # When loop ends, biggest is the max

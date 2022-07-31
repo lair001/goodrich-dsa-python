@@ -3,7 +3,7 @@
 # ch2_ex28
 
 from sys import argv
-from solutions.fragments.ch2.PredatoryCreditCard import PredatoryCreditCard as Ch2PredatoryCreditCard
+from solutions.vendor.ch02.predatory_credit_card import PredatoryCreditCard as Ch2PredatoryCreditCard
 
 
 class PredatoryCreditCard(Ch2PredatoryCreditCard):

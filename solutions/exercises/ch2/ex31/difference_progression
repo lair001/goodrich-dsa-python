@@ -3,7 +3,7 @@
 # ch2_ex31
 
 from sys import argv
-from solutions.fragments.ch2.Progression import Progression as Ch2Progression
+from solutions.vendor.ch02.progressions import Progression as Ch2Progression
 
 
 class DifferenceProgression(Ch2Progression):

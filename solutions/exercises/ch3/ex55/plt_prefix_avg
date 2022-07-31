@@ -4,13 +4,11 @@
 
 import random
 import time
-from math import log2, floor
+from math import floor
 
 from matplotlib import pyplot as plt
 
-from solutions.fragments.ch3.prefix_average1 import prefix_average1
-from solutions.fragments.ch3.prefix_average2 import prefix_average2
-from solutions.fragments.ch3.prefix_average3 import prefix_average3
+from solutions.vendor.ch03.prefix_averages import prefix_average1, prefix_average2, prefix_average3
 
 
 def run_trials():

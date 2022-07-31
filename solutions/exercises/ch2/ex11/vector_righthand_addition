@@ -2,7 +2,7 @@
 
 # ch2_ex11
 
-from solutions.fragments.ch2.Vector import Vector as Ch2Vector
+from solutions.vendor.ch02.vector import Vector as Ch2Vector
 from solutions.libs.utils.argv import parse_int_list
 
 
