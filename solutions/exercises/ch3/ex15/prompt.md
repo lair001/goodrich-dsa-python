@@ -1,0 +1,1 @@
+Show that $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $Ω(f(n))$.
