@@ -1,0 +1,1 @@
+$\sum^n_{i=1} \log i \leq \sum^n_{i=1} \log n = n \log n$ for $n \geq 1$. Hence, $\sum^n_{i=1} \log i$ is $O(n\log n)$.
