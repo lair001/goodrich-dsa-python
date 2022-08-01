@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+# ch3_ex39_2
+
+# O(n^2)
+def geometric_sum_n2(n):
+    pow_two_i = 1
+    _sum = 0
+    for i in range(1, n + 1):
+        pow_two_i *= 2
+        pow_two_j = pow_two_i
+        for j in range(i, n + 1):
+            _sum += 1 / pow_two_j
+            pow_two_j *= 2
+    return _sum
+
+
+if __name__ == "__main__":
+    n = 1
+    while n <= 4294967296:
+        print("{:10d} {:.28f}".format(n, geometric_sum_n2(n)))
+        n *= 2

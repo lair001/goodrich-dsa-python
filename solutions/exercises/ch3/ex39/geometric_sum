@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+# ch3_ex39
+
+#O(n)
+def geometric_sum(n):
+    pow_two = 1
+    _sum = 0
+    for i in range(1, n + 1):
+        pow_two *= 2
+        _sum += i / pow_two
+    return _sum
+
+
+if __name__ == "__main__":
+    n = 1
+    while n <= 4294967296:
+        print("{:10d} {:.28f}".format(n, geometric_sum(n)))
+        n *= 2

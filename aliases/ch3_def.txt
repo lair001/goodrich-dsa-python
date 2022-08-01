@@ -1,6 +1,8 @@
 
 ex35 disjoint
 ex36 ten_largest
+ex39 geometric_sum
+ex39 geometric_sum_n2
 ex41 min_max
 ex45 find_missing_num
 ex50 poly_calc_n2
