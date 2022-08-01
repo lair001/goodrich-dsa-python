@@ -3,6 +3,9 @@ ex35 disjoint
 ex36 ten_largest
 ex41 min_max
 ex45 find_missing_num
+ex50 poly_calc_n2
+ex50 poly_calc_nlgn
+ex50 poly_calc_horner
 ex53 wine_tasting
 ex54 most_freq
 ex55 plt_prefix_avg
