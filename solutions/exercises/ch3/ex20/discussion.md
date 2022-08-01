@@ -1,0 +1,1 @@
+$n^2 \geq n\log n$ for $n \geq 2$. Hence, $n^2$ is $Ω(n\log n)$.
