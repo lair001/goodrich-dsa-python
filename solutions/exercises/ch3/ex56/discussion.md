@@ -1,0 +1,1 @@
+See the solutions for exercise 3.23 to 3.27 for our expectations about the relative runtimes of these algorithms.

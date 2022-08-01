@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+
+# ch3_ex56
+
+import random
+import time
+from sys import argv
+
+from solutions.libs.utils.argv import parse_list
+from solutions.vendor.ch03.exercises import example1, example2, example3, example4, example5
+
+
+def run_trials(n, alg1, alg2):
+    T = 200
+
+    algs = {
+        "example1": {
+            "method": example1,
+            "val": None,
+        },
+        "example2": {
+            "method": example2,
+            "val": None,
+        },
+        "example3": {
+            "method": example3,
+            "val": None,
+        },
+        "example4": {
+            "method": example4,
+            "val": None,
+        },
+        "example5": {
+            "method": example5,
+            "val": None,
+        },
+    }
+
+    slowest_to_fastest_algs = [
+        "example5",
+        "example3",
+        "example4",
+        "example1",
+        "example2",
+    ]
+
+    if slowest_to_fastest_algs.index(alg2) < slowest_to_fastest_algs.index(alg1):
+        algs_to_run = [alg2, alg1]
+    else:
+        algs_to_run = [alg1, alg2]
+
+    while n <= 4294967296:
+        for alg in algs_to_run:
+            total_time = 0
+            for _ in range(T):
+                a = []
+                for _ in range(n):
+                    a.append(random.randint(0, 2 * n))
+                if "example5" in algs_to_run:
+                    b = []
+                    _sum = 0
+                    for num in a:
+                        _sum += num
+                        b.append(_sum)
+                starting_time = time.thread_time()
+                # Example 5 had to ruin things with a different signature!
+                if alg == "example5":
+                    algs[alg]["method"](a, b)
+                else:
+                    algs[alg]["method"](a)
+                total_time += time.thread_time() - starting_time
+            algs[alg]["val"] = total_time
+
+        print("-" * 52)
+        print(n)
+        if algs[algs_to_run[1]]["val"] > 0:
+            print("{} is {:.3f} times faster than {}.".format(
+                algs_to_run[1],
+                algs[algs_to_run[0]]["val"] / algs[algs_to_run[1]]["val"],
+                algs_to_run[0]
+            ))
+        else:
+            print("{} is too fast!".format(slowest_to_fastest_algs[1]))
+        n *= 2
+
+
+if __name__ == "__main__":
+    run_trials(int(argv[1]), argv[2], argv[3])
