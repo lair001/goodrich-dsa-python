@@ -1,0 +1,1 @@
+$n\log n \geq n$ for $n \geq 2$.  Hence, $n\log n$ is $Ω(n)$.

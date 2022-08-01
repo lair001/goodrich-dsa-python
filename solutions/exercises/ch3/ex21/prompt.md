@@ -1,0 +1,1 @@
+Show that $n\log n$ is $Ω(n)$.
