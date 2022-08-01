@@ -1,0 +1,1 @@
+Show that $(n+1)^5$ is $O(n^5)$.
