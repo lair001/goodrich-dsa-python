@@ -1,0 +1,1 @@
+$n \leq n\log n$ for $n \geq 2$. Hence, $n$ is $O(n\log n)$.

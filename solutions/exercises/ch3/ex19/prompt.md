@@ -1,0 +1,1 @@
+Show that $n$ is $O(n\log n)$.
