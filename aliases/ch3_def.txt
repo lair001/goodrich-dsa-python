@@ -10,6 +10,7 @@ ex50 poly_calc_nlgn
 ex50 poly_calc_horner
 ex53 wine_tasting
 ex54 most_freq
+
 ex55 plt_prefix_avg
 ex56 rel_runtime
 ex57 sorted_time_trials

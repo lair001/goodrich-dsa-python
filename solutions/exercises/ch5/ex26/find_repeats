@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# ch5_ex26
+
+from build.lib.solutions.libs.utils.argv import parse_int_list
+
+
+def find_repeats(lst):
+    n = len(lst)
+    counts = [0] * (n - 5)
+
+    for num in lst:
+        counts[num - 1] += 1
+
+    repeats = []
+    for i in range(0, len(counts)):
+        if counts[i] > 1:
+            repeats.append(i + 1)
+
+    return repeats
+
+
+if __name__ == "__main__":
+    print(find_repeats(parse_int_list(1)[0]))
