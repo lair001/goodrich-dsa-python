@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+# ch5_ex14
+import random
+
+from build.lib.solutions.libs.utils.argv import parse_list
+
+
+# This is an implementation of the Knuth Shuffle algorithm. It's similar to insertion sort.
+# For a given interation, elements a[:i-1] is shuffled and you shuffle a[i] into the
+# shuffled slice.
+def shuffle(lst):
+    for i in range(0, len(lst)):
+        j = random.randrange(i + 1)
+        lst[i], lst[j] = lst[j], lst[i]
+
+
+if __name__ == "__main__":
+    lst = parse_list(1)[0]
+    shuffle(lst)
+    print(lst)

@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+# ch5_ex14_2
+import random
+
+from build.lib.solutions.libs.utils.argv import parse_list
+
+
+# A Knuth shuffle variant where instead of shuffling a[i] into the shuffled slice, you're choosing
+# a random element from the remainder of the array to append to the shuffled slice.
+def shuffle_alt(lst):
+    for i in range(0, len(lst)):
+        j = random.randrange(i, len(lst))
+        lst[i], lst[j] = lst[j], lst[i]
+
+
+if __name__ == "__main__":
+    lst = parse_list(1)[0]
+    shuffle_alt(lst)
+    print(lst)
