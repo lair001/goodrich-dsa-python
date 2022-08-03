@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-# ch5_ex31
+# ch5_ex32
 from typing import Sequence
 
 from solutions.libs.utils.argv import parse_int_matrix
 
 
-# The matrix parser is still very much a work in in progress. Please put spaces between your brackets and all of your
+# The matrix parser is still very much a work in progress. Please put spaces between your brackets and all of your
 # elements. Even then, it won't parse certain matrix structures correctly. I'll make another attempt at it when I have
 # time.
 def sum_matrices(A, B):
