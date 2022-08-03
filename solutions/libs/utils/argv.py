@@ -71,12 +71,14 @@ def _parse_matrix_of_type(beginning_index, type):
             if len(lists) > 1:
                 lists[-2].append(lists[-1])
         if arg[-1] == _openings_to_closings[openings_info[-1][0]]:
-            opening_index = openings_info.pop()[1]
+            opening, opening_index = openings_info.pop()
             curr, current_index = _parse_list_of_type(opening_index, type)
             max_index = max(max_index, current_index)
             if curr is None:
                 if len(lists) == 1:
-                    return lists[0], max_index + 1
+                    while max_index < len(sys.argv) and sys.argv[max_index] == _openings_to_closings[opening]:
+                        max_index += 1
+                    return lists[0], max_index
                 else:
                     lists.pop()
                     current_index = max_index + 1
