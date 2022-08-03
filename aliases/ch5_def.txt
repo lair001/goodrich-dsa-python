@@ -1,4 +1,5 @@
 ex7 find_repeat
+ex11 sum_matrix
 
 ex14 shuffle
 ex14 shuffle_alt

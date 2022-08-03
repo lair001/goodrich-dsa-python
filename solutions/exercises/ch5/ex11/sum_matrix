@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+# ch5_ex11
+from typing import Sequence
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# The matrix parser is still very much a work in progress. Please put spaces between your brackets and all of your
+# elements. Even then, it won't parse certain matrix structures correctly. I'll make another attempt at it when I have
+# time.
+def sum_matrix(matrix):
+    n = len(matrix)
+    _sum = 0
+    for i in range(n):
+        for j in range(n):
+            _sum += matrix[i][j]
+    return _sum
+
+
+def _sum_matrix(element, start):
+    if isinstance(element, Sequence):
+        if start == len(element):
+            return 0
+        else:
+            return _sum_matrix(element[start], 0) + _sum_matrix(element, start + 1)
+    else:
+        return element
+
+
+if __name__ == "__main__":
+    print(sum_matrix(parse_int_matrix(1)[0]))
