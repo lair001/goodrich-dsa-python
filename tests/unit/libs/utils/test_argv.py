@@ -9,7 +9,7 @@ def execute_base_parse_list_test(args, expectations, parsing_function, starting_
         current_index = starting_index
         for expected_values in expectations:
             lst, current_index = parsing_function(current_index)
-            
+
             for i in range(len(expected_values)):
                 assert lst[i] is expected_values[i]
         assert current_index is len(args)
@@ -25,6 +25,10 @@ def execute_parse_list_test_with_starting_index(args, expected_values, starting_
 
 def execute_parse_int_list_test(args, expected_values):
     execute_base_parse_list_test(args, expected_values, argv_utils.parse_int_list, 1)
+
+# TODO: Work on how to run assertions on a matrix of arbitrary depth
+# def execute_parse_int_matrix_test(args, expected_values):
+#     execute_base_parse_list_test(args, expected_values, argv_utils.parse_int_matrix, 1)
 
 
 def test_parse_list_with_square_brackets():
@@ -44,10 +48,12 @@ def test_parse_list_with_parenthesis():
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
 
+
 def test_parse_list_with_angular_brackets():
     args = ["path", "<", "1", "2", "3", ">"]
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
+
 
 def test_parse_list_with_multiple_lists():
     args = ["path", "[", "1", "2", "3", "]", "[", "4", "5", "6", "]"]
@@ -72,6 +78,7 @@ def test_parse_list_with_list_as_single_arg_and_elements_separated_by_spaces():
     expected_values = ["1", "2", "3"]
     execute_parse_list_test(args, expected_values)
 
+
 def test_parse_list_with_list_as_single_arg_and_elements_separated_by_by_commas_and_spaces():
     args = ["path", "[ 1 , 2 , 3 ]"]
     expected_values = ["1", "2", "3"]
@@ -90,3 +97,14 @@ def test_parse_int_list_with_a_non_integer_in_list():
         with pytest.raises(ValueError) as ve:
             argv_utils.parse_int_list(1)
         assert "invalid literal for int() with base 10" in str(ve)
+
+
+# def test_parse_int_matrix():
+#     args = ["path", "[", "[", "1", "2", "]", "[", "3", "4", "]", "]"]
+#     expected_values = [[1, 2], [3, 4]]
+#     execute_parse_int_matrix_test(args, expected_values)
+
+# def test_parse_int_matrix():
+#     args = ["path", "[", "[", "[", "1", "2", "]", "]", "[", "[", "3", "4", "]", "]", "]"]
+#     expected_values = [[[1, 2]], [[3, 4]]]
+#     execute_parse_int_matrix_test(args, expected_values)
