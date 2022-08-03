@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+# ch5_ex31
+from typing import Sequence
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# This algorithm can handle a matrix of any dimensions. The matrix parser, however, is still very much a work in
+# in progress. Please put spaces between your brackets and all of your elements. Even then, it won't parse certain
+# matrix structures correctly. I'll make another attempt at it when I have time.
+def sum_matrix(matrix):
+    return _sum_matrix(matrix, 0)
+
+
+def _sum_matrix(element, start):
+    if isinstance(element, Sequence):
+        if start == len(element):
+            return 0
+        else:
+            return _sum_matrix(element[start], 0) + _sum_matrix(element, start + 1)
+    else:
+        return element
+
+
+if __name__ == "__main__":
+    print(sum_matrix(parse_int_matrix(1)[0]))
