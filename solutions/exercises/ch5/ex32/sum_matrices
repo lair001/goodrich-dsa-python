@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+# ch5_ex31
+from typing import Sequence
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# The matrix parser is still very much a work in in progress. Please put spaces between your brackets and all of your
+# elements. Even then, it won't parse certain matrix structures correctly. I'll make another attempt at it when I have
+# time.
+def sum_matrices(A, B):
+    L = len(A)
+    M = len(A[0])
+    N = len(A[0][0])
+
+    if len(B) != L or len(B[0]) != M or len(B[0][0]) != N:
+        raise ValueError("A and B must have the same dimensions!")
+
+    result = [[[0 for _ in range(N)] for _ in range(M)] for _ in range(L)]
+
+    for i in range(L):
+        for j in range(M):
+            for k in range(N):
+                result[i][j][k] = A[i][j][k] + B[i][j][k]
+
+    return result
+
+
+if __name__ == "__main__":
+    A, current_index = parse_int_matrix(1)
+    B = parse_int_matrix(current_index)[0]
+
+    print(sum_matrices(A, B))
