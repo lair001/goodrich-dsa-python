@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+
+# ch5_ex33
+import numbers
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# The matrix parser is still very much a work in progress. Please put spaces between your brackets and all of your
+# elements. Even then, it won't parse certain matrix structures correctly. I'll make another attempt at it when I have
+# time.
+
+class TwoDMatrix:
+    def __init__(self, matrix):
+        self._rows = len(matrix)
+        self._columns = len(matrix[0])
+
+        self._matrix = []
+
+        for i in range(self._rows):
+            curr_row = []
+            self._matrix.append(curr_row)
+            for j in range(self._columns):
+                curr_ele = matrix[i][j]
+                if not isinstance(curr_ele, numbers.Number):
+                    raise ValueError("This class only supports 2D matrices of numbers!")
+                curr_row.append(curr_ele)
+
+    def get_ele_at(self, row, column):
+        return self._matrix[row][column]
+
+    def __add__(self, other):
+        if not isinstance(other, self.__class__):
+            raise ValueError("Only supports addition with other matrices of class {}.".format(self.__class__.__name__))
+        if self._rows != other._rows or self._columns != other._columns:
+            raise ValueError("Matrix addition requires that both matrices have the same dimensions!")
+        result = []
+        for i in range(self._rows):
+            curr_row = []
+            result.append(curr_row)
+            for j in range(self._columns):
+                curr_row.append(self.get_ele_at(i, j) + other.get_ele_at(i, j))
+
+        return TwoDMatrix(result)
+
+    def __mul__(self, other):
+        if not isinstance(other, self.__class__):
+            raise ValueError("Only supports addition with other matrices of class {}.".format(self.__class__.__name__))
+        if self._columns != other._rows:
+            raise ValueError("Matrix addition requires that second matrix has as many rows as the first matrix has "
+                             "columns!")
+        result = [[] for _ in range(self._rows)]
+
+        for j in range(other._columns):
+            for i in range(self._rows):
+                mult = 0
+                for k in range(self._columns):
+                    mult += other.get_ele_at(k, j) * self.get_ele_at(i, k)
+                result[i].append(mult)
+
+        return TwoDMatrix(result)
+
+    def __str__(self):
+        return self._matrix.__str__()
+
+
+if __name__ == "__main__":
+    A, current_index = parse_int_matrix(1)
+    B = parse_int_matrix(current_index)[0]
+    A = TwoDMatrix(A)
+    B = TwoDMatrix(B)
+    print(A + B)
+    print(A * B)
