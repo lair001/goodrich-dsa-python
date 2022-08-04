@@ -1,3 +1,4 @@
+ex4 dynamic_array
 ex6 dynamic_array
 ex7 find_repeat
 ex11 sum_matrix

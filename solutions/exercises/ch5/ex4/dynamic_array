@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+# ch5_ex4
+
+from solutions.vendor.ch05.dynamic_array import DynamicArray as Ch5DynamicArray
+
+
+class DynamicArray(Ch5DynamicArray):
+
+    def __getitem__(self, k):
+        """Return element at index k."""
+        if not -self._n <= k < self._n:
+            raise IndexError('invalid index')
+        if k >= 0:
+            return self._A[k]
+        else:
+            return self._A[self._n + k]
+
+
+if __name__ == "__main__":
+    a = DynamicArray()
+    for i in range(8):
+        a.append(i)
+
+    print("iterate over indices 0 to n-1")
+    for i in range(len(a)):
+        print(a[i])
+    print("iterate over indices -1 to -n")
+    for i in range(-1, -len(a)-1, -1):
+        print(a[i])
