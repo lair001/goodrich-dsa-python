@@ -6,10 +6,6 @@ import numbers
 from solutions.libs.utils.argv import parse_int_matrix
 
 
-# The matrix parser is still very much a work in progress. Please put spaces between your brackets and all of your
-# elements. Even then, it won't parse certain matrix structures correctly. I'll make another attempt at it when I have
-# time.
-
 class TwoDMatrix:
     def __init__(self, matrix):
         self._rows = len(matrix)

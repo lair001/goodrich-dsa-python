@@ -6,9 +6,6 @@ from typing import Sequence
 from solutions.libs.utils.argv import parse_int_matrix
 
 
-# This algorithm can handle a matrix of any dimensions. The matrix parser, however, is still very much a work in
-# in progress. Please put spaces between your brackets and all of your elements. Even then, it won't parse certain
-# matrix structures correctly. I'll make another attempt at it when I have time.
 def sum_matrix(matrix):
     return _sum_matrix(matrix, 0)
 
