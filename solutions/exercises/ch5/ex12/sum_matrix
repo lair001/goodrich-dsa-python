@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+# ch5_ex12
+from typing import Sequence
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# Technically generator comprehension instead of list comprehension but more memory efficient
+# since we never have all the subtotals in memory at the same time. You can simply change
+# the parenthesis to square brackets to get a list comprehension version.
+def sum_matrix(matrix):
+    subtotals = (sum(row) for row in matrix)
+    return sum(subtotals)
+
+
+def _sum_matrix(element, start):
+    if isinstance(element, Sequence):
+        if start == len(element):
+            return 0
+        else:
+            return _sum_matrix(element[start], 0) + _sum_matrix(element, start + 1)
+    else:
+        return element
+
+
+if __name__ == "__main__":
+    print(sum_matrix(parse_int_matrix(1)[0]))
