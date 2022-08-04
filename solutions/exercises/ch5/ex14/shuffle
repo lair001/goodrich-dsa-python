@@ -3,7 +3,7 @@
 # ch5_ex14
 import random
 
-from build.lib.solutions.libs.utils.argv import parse_list
+from solutions.libs.utils.argv import parse_list
 
 
 # This is an implementation of the Knuth Shuffle algorithm. It's similar to insertion sort.
