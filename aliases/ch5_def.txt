@@ -1,6 +1,7 @@
 ex4 dynamic_array
 ex6 dynamic_array
 ex7 find_repeat
+ex10 caesar_cipher
 ex11 sum_matrix
 ex12 sum_matrix
 

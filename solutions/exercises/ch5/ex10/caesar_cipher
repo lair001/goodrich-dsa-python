@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# ch5_ex10
+
+from sys import argv
+from solutions.vendor.ch05.caesar import CaesarCipher as Ch5CaesarCipher
+
+
+class CaesarCipher(Ch5CaesarCipher):
+
+    def __init__(self, shift):
+        """Construct Caesar cipher using given integer shift for rotation."""
+        self._forward = ''.join([chr((k + shift) % 26 + ord('A')) for k in range(26)])
+        self._backward = ''.join([chr((k - shift) % 26 + ord('A')) for k in range(26)])
+
+
+if __name__ == "__main__":
+    shift = 3 if len(argv) < 2 else int(argv[1])
+    original_msg = "HELLO WORLD!" if len(argv) < 3 else argv[2]
+    cc = CaesarCipher(shift)
+    print("Original Message: {}".format(original_msg))
+    encrypted_msg = cc.encrypt(original_msg)
+    print("Encrypted Message: {}".format(encrypted_msg))
+    print("Decrypted Message: {}".format(cc.decrypt(encrypted_msg)))
