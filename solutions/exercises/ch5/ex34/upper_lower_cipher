@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+# ch5_ex34
+
+from sys import argv
+from solutions.vendor.ch05.caesar import CaesarCipher as Ch5CaesarCipher
+
+
+class UpperLowerCipher(Ch5CaesarCipher):
+
+    def __init__(self, shift):
+        """Construct Caesar cipher using given integer shift for rotation."""
+        forward = ''.join([chr((k + shift) % 26 + ord('A')) for k in range(26)])
+        self._forward = [forward, forward.lower()]
+
+        backward = ''.join([chr((k - shift) % 26 + ord('A')) for k in range(26)])
+        self._backward = [backward, backward.lower()]
+
+    def _transform(self, original, code):
+        """Utility to perform transformation based on given code string."""
+        msg = list(original)
+        for k in range(len(msg)):
+            if msg[k].isupper():
+                j = ord(msg[k]) - ord('A')  # index from 0 to 25
+                msg[k] = code[0][j]  # replace this character
+            elif msg[k].islower():
+                j = ord(msg[k]) - ord('a')  # index from 0 to 25
+                msg[k] = code[1][j]  # replace this character
+        return ''.join(msg)
+
+
+def _main():
+    shift = 3 if len(argv) < 2 else int(argv[1])
+    original_msg = "Hello World!" if len(argv) < 3 else argv[2]
+    cc = UpperLowerCipher(shift)
+    print("Original Message: {}".format(original_msg))
+    encrypted_msg = cc.encrypt(original_msg)
+    print("Encrypted Message: {}".format(encrypted_msg))
+    print("Decrypted Message: {}".format(cc.decrypt(encrypted_msg)))
+
+
+if __name__ == "__main__":
+    _main()
