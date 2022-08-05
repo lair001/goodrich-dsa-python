@@ -10,6 +10,7 @@ ex14 shuffle
 ex14 shuffle_alt
 ex26 find_repeats
 ex27 missing_bit
+ex29 natural_join
 ex31 sum_matrix
 
 ex32 sum_matrices

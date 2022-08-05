@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+# ch5_ex29
+
+
+from solutions.libs.utils.argv import parse_int_matrix
+
+
+# One way to solve this problem is with a hashmap. However, we haven't introduced hashmaps yet and this is a chapter on
+# arrays, so I'll assume that the y values must be positive integers and use an array. This is actually a common
+# restriction on foreign keys in practice.
+def natural_join(A, B):
+    y_to_b = [[] for _ in range(B[0][0] + 1)]
+    for t in B:
+        if t[0] >= len(y_to_b):
+            y_to_b.extend(([] for _ in range(t[0] - len(y_to_b) + 1)))
+        y_to_b[t[0]].append(t)
+
+    result = []
+    for ta in A:
+        if ta[1] >= len(y_to_b):
+            continue
+        else:
+            for tb in y_to_b[ta[1]]:
+                result.append((ta[0], ta[1], tb[1]))
+
+    return result
+
+
+def _main():
+    A, current_index = parse_int_matrix(1)
+    B = parse_int_matrix(current_index)[0]
+    print(natural_join(A, B))
+
+
+if __name__ == "__main__":
+    _main()
