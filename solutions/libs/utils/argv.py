@@ -1,6 +1,5 @@
-import sys, re
+import sys
 from os import linesep as newline
-from collections import deque
 
 _openings = ['[', '{', '(', '<']
 _openings_to_closings = {
