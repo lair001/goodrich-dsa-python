@@ -17,3 +17,4 @@ ex31 sum_matrix
 ex32 sum_matrices
 ex33 twod_matrices
 ex34 upper_lower_cipher
+ex35 substitution_cipher
