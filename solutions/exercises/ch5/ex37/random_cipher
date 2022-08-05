@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+# ch5_ex37
+import random
+from sys import argv
+
+from solutions.exercises.ch5.ex35.substitution_cipher import SubstitutionCipher
+
+
+class RandomCipher(SubstitutionCipher):
+    def __init__(self):
+        forward = [chr(i + ord('A')) for i in range(26)]
+        random.shuffle(forward)
+        super().__init__(''.join(forward))
+
+
+def _main():
+    original_msg = "HELLO WORLD!" if len(argv) < 2 else argv[1]
+    cc = RandomCipher()
+    print("Original Message: {}".format(original_msg))
+    encrypted_msg = cc.encrypt(original_msg)
+    print("Encrypted Message: {}".format(encrypted_msg))
+    print("Decrypted Message: {}".format(cc.decrypt(encrypted_msg)))
+
+
+if __name__ == "__main__":
+    _main()
