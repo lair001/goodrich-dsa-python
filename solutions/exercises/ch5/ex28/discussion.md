@@ -1,0 +1,2 @@
+Any solution to ex 5.27 must run in $\Omega(n)$ time because we must eliminate the elements of L from the set
+of all permitted values to find a permitted value not in L. This requires inspecting each value of L at least once.
