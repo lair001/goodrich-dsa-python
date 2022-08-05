@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+
+# ch5_ex30
+
+# We'll model the packets as tuples that contain an index and a data string
+import random
+import time
+from sys import argv
+
+
+class Receiver:
+    def __init__(self, n):
+        # Alice knows the number of packets to expect ahead of time
+        self._data = [None for _ in range(n)]
+        self._received = 0
+
+    def done(self):
+        return self._received == len(self._data)
+
+    def receive(self, packet):
+        self._data[packet[0]] = packet[1]
+        self._received += 1
+
+    def assemble(self):
+        if not self.done():
+            raise RuntimeError("Cannot assemble the message before receiving all of the packets!")
+        return ''.join(self._data)
+
+
+def _main():
+    msg = argv[1] if len(argv) > 1 else "Hello, Alice!"
+    packets = [(i, msg[i]) for i in range(len(msg))]
+    random.shuffle(packets)
+    alice = Receiver(len(packets))
+
+    while not alice.done():
+        alice.receive(packets.pop())
+        time.sleep(random.random())
+
+    print(alice.assemble())
+
+
+if __name__ == "__main__":
+    _main()
