@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+
+# ch6_ex14
+from collections import deque
+
+from solutions.exercises.ch6.ex11.deque import Deque
+from solutions.vendor.ch06.array_stack import ArrayStack
+
+_DIVIDER = "-" * 52
+
+
+def _main():
+    D = Deque()
+    for i in range(1, 9):
+        D.add_last(i)
+    S = ArrayStack()
+    print(_DIVIDER)
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    for _ in range(1, 5):
+        S.push(D.delete_first())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    for _ in range(8, 5, -1):
+        S.push(D.delete_last())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    for _ in range(8, 5, -1):
+        D.add_first(S.pop())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    D.add_last(S.pop())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    for _ in range(1, 4):
+        S.push(D.delete_first())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    for _ in range(8, 5, -1):
+        D.add_last(S.pop())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+    while not S.is_empty():
+        D.add_first(S.pop())
+    print("D: {}".format(D))
+    print("S: {}".format(S))
+    print(_DIVIDER)
+
+
+if __name__ == "__main__":
+    _main()
