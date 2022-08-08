@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+# ch6_ex13
+from collections import deque
+
+from solutions.exercises.ch6.ex11.deque import Deque
+from solutions.vendor.ch06.array_queue import ArrayQueue
+
+_DIVIDER = "-" * 52
+
+def _main():
+    D = Deque()
+    for i in range(1, 9):
+        D.add_last(i)
+    Q = ArrayQueue()
+    print(_DIVIDER)
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    for _ in range(1,5):
+        Q.enqueue(D.delete_first())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    for _ in range(8, 5, -1):
+        Q.enqueue(D.delete_last())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    for _ in range(1, 4):
+        D.add_first(Q.dequeue())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    while not Q.is_empty():
+        D.add_last(Q.dequeue())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    for _ in range(1, 4):
+        Q.enqueue(D.delete_first())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    while not Q.is_empty():
+        D.add_first(Q.dequeue())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    for _ in range(8, 5, -1):
+        Q.enqueue(D.delete_last())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+    while not Q.is_empty():
+        D.add_last(Q.dequeue())
+    print("D: {}".format(D))
+    print("Q: {}".format(Q))
+    print(_DIVIDER)
+
+
+if __name__ == "__main__":
+    _main()
