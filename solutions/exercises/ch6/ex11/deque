@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+# ch6_ex11
+from sys import argv
+
+from solutions.exercises.ch6.ex11.deque import Deque
+
+
+def _main():
+    d = Deque()
+    print("d: {}".format(d))
+    d.add_last(5)
+    print("d: {}".format(d))
+    d.add_first(3)
+    print("d: {}".format(d))
+    d.add_first(7)
+    print("d: {}".format(d))
+    print(d.first())
+    print("d: {}".format(d))
+    print(d.delete_last())
+    print("d: {}".format(d))
+    print(len(d))
+    print("d: {}".format(d))
+    print(d.delete_last())
+    print("d: {}".format(d))
+    print(d.delete_last())
+    print("d: {}".format(d))
+    print(d.is_empty())
+    print("d: {}".format(d))
+    d.add_first(6)
+    print("d: {}".format(d))
+    print(d.last())
+    print("d: {}".format(d))
+    d.add_first(8)
+    print("d: {}".format(d))
+    print(d.is_empty())
+    print("d: {}".format(d))
+    print(d.last())
+    print("d: {}".format(d))
+    d.add_last(1)
+    print("d: {}".format(d))
+    print(d.delete_first())
+    print("d: {}".format(d))
+
+
+if __name__ == "__main__":
+    _main()
