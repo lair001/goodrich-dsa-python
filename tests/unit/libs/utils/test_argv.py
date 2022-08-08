@@ -148,7 +148,6 @@ def test_parse_multiple_int_matrices_with_commas():
     execute_parse_int_matrix_test(args, expected_values)
 
 
-# TODO: This use case still doesn't work
 def test_parse_multiple_int_matrices_as_single_compact_arg():
     args = ["path", "[[1,2],[3,4]]", "[[[1,2]],[[3,4]]]"]
     expected_values = [[[1, 2], [3, 4]], [[[1, 2]], [[3, 4]]]]
