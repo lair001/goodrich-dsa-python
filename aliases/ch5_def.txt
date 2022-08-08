@@ -9,6 +9,7 @@ ex12 sum_matrix
 ex14 shuffle
 ex14 shuffle_alt
 ex16 dynamic_array
+ex25 remove_all
 ex26 find_repeats
 ex27 missing_bit
 ex29 natural_join
