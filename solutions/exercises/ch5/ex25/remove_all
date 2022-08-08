@@ -17,6 +17,8 @@ class DynamicArray(Ch5DynamicArray):
                 self._A[i] = None
             else:
                 self._A[i - count] = self._A[i]
+                if i > self._n - count - 1:
+                    self._A[i] = None
         self._n -= count
         if self._n < self._capacity // 4:
             self._resize(self._capacity // 2)
