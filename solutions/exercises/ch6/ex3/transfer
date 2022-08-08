@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+# ch6_ex3
+from sys import argv
+
+from solutions.vendor.ch06.array_stack import ArrayStack
+
+
+def transfer(S: ArrayStack, T: ArrayStack):
+    while not S.is_empty():
+        T.push(S.pop())
+
+
+def _main():
+    S = ArrayStack()
+    T = ArrayStack()
+
+    for i in range(int(argv[1]) if len(argv) > 1 else 10):
+        S.push(i)
+    print("S: {}".format(S))
+    print("T: {}".format(T))
+    print("Transferring from S to T ...")
+    transfer(S, T)
+    print("S: {}".format(S))
+    print("T: {}".format(T))
+
+
+if __name__ == "__main__":
+    _main()
