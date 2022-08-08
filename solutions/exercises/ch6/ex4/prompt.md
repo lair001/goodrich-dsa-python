@@ -1,0 +1,1 @@
+Give a recursive method for removing all the elements from a stack.
