@@ -83,4 +83,7 @@ class ArrayQueue:
     # Samuel Lair - I'm adding a __str__ method to help demonstrate what is happening in exercise solutions that link
     # this class. This method is not part of the original vendor code.
     def __str__(self):
-        return self._data.__str__()
+        elements = [None] * len(self)
+        for i in range(len(self)):
+            elements[i] = str(self._data[(i + self._front) % len(self._data)])
+        return "[{}]".format(", ".join(elements))
