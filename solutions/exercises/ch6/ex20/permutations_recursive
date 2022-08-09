@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+# ch6_ex20_2
+from sys import argv
+
+
+def get_permutations(n: int):
+    result = []
+    _get_permutations([], [i for i in range(1, n + 1)], result)
+    return result
+
+
+def _get_permutations(current: list, remaining: list, result: list):
+    if len(remaining) == 0:
+        result.append(current)
+    else:
+        for i in range(len(remaining)):
+            _next = current.copy()
+            _next.append(remaining[i])
+            _get_permutations(_next, remaining[:i] + remaining[i + 1:], result)
+
+
+def _main():
+    permutations = get_permutations(int(argv[1]) if len(argv) > 1 else 3)
+    for permutation in permutations:
+        print(permutation)
+
+
+if __name__ == "__main__":
+    _main()

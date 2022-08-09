@@ -5,4 +5,6 @@ ex11 deque
 ex13 swap
 ex14 swap
 ex18 reverse
+ex20 permutations
+ex20 permutations_recursive
 ex21 every_subset
