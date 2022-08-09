@@ -5,3 +5,4 @@ ex11 deque
 ex13 swap
 ex14 swap
 ex18 reverse
+ex21 every_subset
