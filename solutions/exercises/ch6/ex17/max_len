@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+
+# ch6_ex17
+from sys import argv
+
+from solutions.exercises.ch6.ex16.full import Full
+from solutions.exercises.ch6.ex17.max_len_array_stack import MaxLenArrayStack
+
+
+def _main():
+    maxlen = int(argv[1]) if len(argv) > 1 else 10
+    s = MaxLenArrayStack(maxlen)
+    print("s has a maxlen of {}.".format(maxlen))
+    for i in range(maxlen):
+        s.push(i)
+    print("s: {}".format(s))
+    try:
+        s.push(11)
+    except Full as e:
+        print("The following error was raised while pushing to s:")
+        print(e)
+    print("s: {}".format(s))
+    t = MaxLenArrayStack()
+    print("t has a maxlen of None.")
+    for i in range(maxlen):
+        t.push(i)
+    print("t: {}".format(t))
+    for i in range(maxlen, 2 * maxlen):
+        t.push(i)
+    print("t: {}".format(t))
+    print("We can push as many elements as we want onto t!")
+
+
+if __name__ == "__main__":
+    _main()
