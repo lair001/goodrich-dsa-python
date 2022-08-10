@@ -1,0 +1,25 @@
+%! Author = lair001
+%! Date = 8/10/2022
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{indentfirst}
+
+% Document
+\begin{document}
+
+    \section{Prompt}\label{sec:prompt}
+
+    Show that the summation $\sum^n_{i=1} \log i$ is $\Omega(n\log n)$.
+
+    \pagebreak
+
+    \section{Discussion}\label{sec:discussion}
+
+    $\sum^n_{i=1} \log i \geq \sum^n_{i=1} \log \sqrt{n} = \frac{n}{2} \log n$ for $n \geq 1$. Hence, $\sum^n_{i=1} \log i$ is $\Omega(n\log n)$.
+
+
+\end{document}
