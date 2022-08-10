@@ -4,6 +4,7 @@ ex5 reverse
 ex11 deque
 ex13 swap
 ex14 swap
+ex15 guess_max
 ex16 max_len
 ex17 max_len
 ex18 reverse
