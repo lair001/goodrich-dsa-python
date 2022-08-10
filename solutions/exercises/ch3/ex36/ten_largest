@@ -2,7 +2,7 @@
 
 # ch3_ex36
 
-from solutions.libs.utils.argv import parse_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 # If you know about heaps, you may be tempted to use one for this
@@ -18,4 +18,4 @@ def ten_largest(a):
 
 
 if __name__ == "__main__":
-    print(ten_largest(parse_list(1)[0]))
+    print(ten_largest(parse_int_list(1)[0]))
