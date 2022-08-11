@@ -1,0 +1,1 @@
+My implementation has a runtime complexity of $\Theta(1)$ for push() and $\Theta(n)$ for pop() and top().
