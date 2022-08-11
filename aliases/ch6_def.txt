@@ -14,3 +14,4 @@ ex20 permutations
 ex20 permutations_recursive
 ex21 every_subset
 ex23 ordered_transfer
+ex27 scan
