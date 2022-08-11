@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+from sys import argv
+from sys import exit
+from os import path as os_path
+from subprocess import Popen
+from re import match
+
+command = ['pipenv', 'run', 'pytest']
+
+if len(argv) > 1:
+    path = argv[1].split("::")
+    test = path[1] if len(path) > 1 else None
+    path = path[0].split("/")
+    if path[0] == "int":
+        path[0] = "integration"
+    if len(path) > 1:
+        if path[1] == "sols":
+            path[1] = "solutions"
+        if match(r"^ch\d+$", path[1]):
+            path = path[:1] + ["solutions", "exercises"] + path[1:]
+        if len(path) > 2:
+            if path[2] == "exs":
+                path[2] = "exercises"
+    path = os_path.join("tests", *path)
+    if test is not None:
+        path = "{}::{}".format(path, test)
+    command.append(path)
+
+
+exit(Popen(command).wait())
