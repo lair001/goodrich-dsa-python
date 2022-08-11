@@ -15,3 +15,5 @@ ex20 permutations_recursive
 ex21 every_subset
 ex23 ordered_transfer
 ex27 scan
+ex28 max_len
+ex29 rotate_queue
