@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+# ch6_ex23
+from solutions.vendor.ch06.array_stack import ArrayStack
+
+_DIVIDER = "-" * 52
+
+
+def _print_current_state(R, S, T):
+    print("R: {}".format(R))
+    print("S: {}".format(S))
+    print("T: {}".format(T))
+    print(_DIVIDER)
+
+
+def ordered_transfer(R, S, T, should_print_state=False):
+    original_len_of_S = len(S)
+    while not S.is_empty():
+        R.push(S.pop())
+    if should_print_state:
+        _print_current_state(R, S, T)
+    original_len_of_T = len(T)
+    while not T.is_empty():
+        R.push(T.pop())
+    if should_print_state:
+        _print_current_state(R, S, T)
+    for _ in range(original_len_of_T + original_len_of_S):
+        S.push(R.pop())
+    if should_print_state:
+        _print_current_state(R, S, T)
+
+
+def _main():
+    R = ArrayStack()
+    for i in range(1, 4):
+        R.push(i)
+    S = ArrayStack()
+    for i in range(4, 6):
+        S.push(i)
+    T = ArrayStack()
+    for i in range(6, 10):
+        T.push(i)
+    print(_DIVIDER)
+    _print_current_state(R, S, T)
+    ordered_transfer(R, S, T, True)
+
+
+if __name__ == "__main__":
+    _main()

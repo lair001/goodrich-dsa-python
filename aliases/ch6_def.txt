@@ -4,6 +4,7 @@ ex5 reverse
 ex11 deque
 ex13 swap
 ex14 swap
+
 ex15 guess_max
 ex16 max_len
 ex17 max_len
@@ -12,3 +13,4 @@ ex19 match_html
 ex20 permutations
 ex20 permutations_recursive
 ex21 every_subset
+ex23 ordered_transfer
