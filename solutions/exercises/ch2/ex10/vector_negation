@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch2_ex10
+# ch2/ex10
 
 from solutions.vendor.ch02.vector import Vector as Ch2Vector
 from solutions.libs.utils.argv import parse_int_list

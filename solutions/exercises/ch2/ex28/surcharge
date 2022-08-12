@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch2_ex28
+# ch2/ex28
 
 from sys import argv
 from solutions.vendor.ch02.predatory_credit_card import PredatoryCreditCard as Ch2PredatoryCreditCard

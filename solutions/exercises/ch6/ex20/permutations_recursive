@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex20_2
+# ch6/ex20/2
 from sys import argv
 
 

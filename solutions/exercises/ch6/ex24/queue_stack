@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex24
+# ch6/ex24
 from sys import argv
 
 from solutions.exercises.ch6.ex24.queue_stack import QueueStack

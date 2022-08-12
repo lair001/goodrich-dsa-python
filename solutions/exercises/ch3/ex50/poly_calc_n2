@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch3_ex50
+# ch3/ex50
 
 from sys import argv
 from build.lib.solutions.libs.utils.argv import parse_int_list

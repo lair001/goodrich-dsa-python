@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex19
+# ch6/ex19
 from sys import argv
 
 from solutions.vendor.ch06.array_stack import ArrayStack

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex18
+# ch6/ex18
 from sys import argv
 
 from solutions.exercises.ch6.ex3.transfer import transfer

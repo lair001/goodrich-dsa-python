@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch4_ex11
+# ch4/ex11
 
 from build.lib.solutions.libs.utils.argv import parse_list
 

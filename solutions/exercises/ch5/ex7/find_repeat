@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex7
+# ch5/ex7
 
 from build.lib.solutions.libs.utils.argv import parse_int_list
 

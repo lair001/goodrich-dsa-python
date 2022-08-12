@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch4_ex7
+# ch4/ex7
 
 from sys import argv
 

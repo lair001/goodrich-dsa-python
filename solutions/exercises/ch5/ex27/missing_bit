@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex27
+# ch5/ex27
 import random
 from sys import argv
 from math import log2, ceil

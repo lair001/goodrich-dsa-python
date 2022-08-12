@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex16
+# ch6/ex16
 from sys import argv
 
 from solutions.exercises.ch6.ex16.full import Full

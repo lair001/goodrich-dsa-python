@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch3_ex56
+# ch3/ex56
 
 import random
 import time

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex15
+# ch1/ex15
 
 from solutions.libs.utils.argv import parse_int_list
 

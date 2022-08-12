@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex23
+# ch1/ex23
 
 from random import randrange
 from solutions.libs.utils.argv import parse_int_list

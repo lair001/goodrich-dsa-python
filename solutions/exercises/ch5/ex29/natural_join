@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex29
+# ch5/ex29
 
 
 from solutions.libs.utils.argv import parse_int_matrix

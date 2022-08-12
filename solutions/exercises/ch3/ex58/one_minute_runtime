@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch3_ex58
+# ch3/ex58
 import time
 from math import factorial
 from sys import setrecursionlimit

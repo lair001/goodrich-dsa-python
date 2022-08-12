@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch6_ex29
+# ch6/ex29
 from sys import argv
 
 from solutions.exercises.ch6.ex29.rotatable_array_queue import RotatableArrayQueue

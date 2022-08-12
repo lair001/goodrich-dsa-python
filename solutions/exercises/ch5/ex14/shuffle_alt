@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex14_2
+# ch5/ex14/2
 import random
 
 from build.lib.solutions.libs.utils.argv import parse_list

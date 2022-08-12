@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex30
+# ch1/ex30
 
 from sys import argv
 

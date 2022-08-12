@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex13_2
+# ch1/ex13/2
 
 from solutions.libs.utils.argv import parse_int_list
 from solutions.libs.decorators.dynamic.ListDecorator import ListDecorator

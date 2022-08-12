@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch1_ex10
+# ch1/ex10
 
 if __name__ == "__main__":
     print(list(range(8, -9, -2)))

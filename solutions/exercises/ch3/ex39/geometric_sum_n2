@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch3_ex39_2
+# ch3/ex39/2
 
 # O(n^2)
 def geometric_sum_n2(n):

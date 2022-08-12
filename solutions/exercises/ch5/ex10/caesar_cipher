@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex10
+# ch5/ex10
 
 from sys import argv
 from solutions.vendor.ch05.caesar import CaesarCipher as Ch5CaesarCipher

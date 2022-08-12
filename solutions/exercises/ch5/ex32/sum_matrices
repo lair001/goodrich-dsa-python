@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex32
+# ch5/ex32
 from typing import Sequence
 
 from solutions.libs.utils.argv import parse_int_matrix

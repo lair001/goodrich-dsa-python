@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex30
+# ch5/ex30
 
 # We'll model the packets as tuples that contain an index and a data string
 import random

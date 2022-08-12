@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex35
+# ch5/ex35
 import random
 from sys import argv
 

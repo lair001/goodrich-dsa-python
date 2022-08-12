@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ch5_ex4
+# ch5/ex4
 
 from solutions.vendor.ch05.dynamic_array import DynamicArray as Ch5DynamicArray
 
