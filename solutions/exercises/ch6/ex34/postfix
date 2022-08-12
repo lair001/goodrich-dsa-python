@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+
+# ch6/ex34
+
+from re import match
+from sys import argv
+
+from solutions.vendor.ch06.array_stack import ArrayStack
+from solutions.vendor.ch06.empty import Empty
+
+_precedence = {"(": 0, "+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
+_supported_operators = tuple(_precedence.keys())
+
+
+def _parse_curr_value(values: ArrayStack, operators: ArrayStack):
+    curr_value = [None] * 3
+    for i in range(1, -1, -1):
+        if values.is_empty():
+            raise ValueError("Invalid infix expression: not enough values")
+        curr_value[i] = values.pop()
+    try:
+        curr_value[2] = operators.pop()
+    except Empty:
+        raise ValueError("Invalid infix expression: not enough operators")
+    return " ".join(curr_value)
+
+
+def _process_token(token: list[str], values: ArrayStack, should_convert_to_float: bool = False):
+    if len(token) > 0:
+        value = "".join(token)
+        if should_convert_to_float:
+            value = float(value)
+        values.push(value)
+        token.clear()
+
+
+_float_pattern = r"^[\d.]$"
+
+
+def infix_to_postfix(infix: str):
+    token: list[str] = []
+    values = ArrayStack()
+    operators = ArrayStack()
+
+    for i in range(len(infix)):
+        curr_char = infix[i]
+        if match(_float_pattern, curr_char):
+            token.append(curr_char)
+        else:
+            _process_token(token, values)
+            if curr_char == ")":
+                while operators.top() != "(":
+                    values.push(_parse_curr_value(values, operators))
+                operators.pop()
+            elif curr_char in _supported_operators:
+                if curr_char != "(":
+                    while not operators.is_empty() and _precedence[curr_char] < _precedence[operators.top()]:
+                        values.push(_parse_curr_value(values, operators))
+                operators.push(curr_char)
+            elif not match(r"^[(\w]$", curr_char):
+                raise ValueError("Invalid character found in infix expression: {}".format(curr_char))
+
+    _process_token(token, values)
+
+    while not operators.is_empty():
+        values.push(_parse_curr_value(values, operators))
+
+    if len(values) > 1:
+        raise ValueError("Invalid infix expression: not enough operators")
+
+    return values.pop()
+
+
+def evaluate_postfix(postfix: str):
+    token: list[str] = []
+    values = ArrayStack()
+    for i in range(len(postfix)):
+        curr_char = postfix[i]
+        if match(_float_pattern, curr_char):
+            token.append(curr_char)
+        else:
+            _process_token(token, values, True)
+            if curr_char in _supported_operators:
+                operand2 = values.pop()
+                operand1 = values.pop()
+                if curr_char == "+":
+                    values.push(operand1 + operand2)
+                elif curr_char == "-":
+                    values.push(operand1 - operand2)
+                elif curr_char == "*":
+                    values.push(operand1 * operand2)
+                elif curr_char == "/":
+                    values.push(operand1 / operand2)
+                elif curr_char == "^":
+                    values.push(operand1 ** operand2)
+                else:
+                    raise RuntimeError("This script has a bug!")
+            elif not curr_char.isspace():
+                raise ValueError("Invalid character found in postfix expression: {}".format(curr_char))
+
+    if len(values) > 1:
+        raise ValueError("Invalid infix expression: not enough operators")
+
+    return values.pop()
+
+
+def _main():
+    opt = argv[1]
+    default_infix = "((5+2)*(8-3))/4"
+    default_postfix = "5 2 + 8 3 - * 4 /"
+    if opt == "c":
+        print(infix_to_postfix(argv[2] if len(argv) > 2 else default_infix))
+    elif opt == "ep":
+        print(evaluate_postfix(argv[2] if len(argv) > 2 else default_postfix))
+    elif opt == "ei":
+        print(evaluate_postfix(infix_to_postfix(argv[2] if len(argv) > 2 else default_infix)))
+
+
+if __name__ == "__main__":
+    _main()
