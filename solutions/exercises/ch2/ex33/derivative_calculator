@@ -1,0 +1,138 @@
+#!/usr/bin/env python
+
+# ch2/ex33
+
+from re import match
+from re import Pattern
+from sys import argv
+from typing import Literal, ClassVar, get_args
+
+
+class DerivativeCalculator:
+    Operator = Literal["+", "-"]
+    _operators: ClassVar[list[Operator]] = get_args(Operator)
+
+    _variable: str
+    _operator: Operator
+
+    _numeric_coefficient: float
+    _symbolic_coefficient: str
+    _exponent: float
+    _is_first: bool
+
+    _numeric_pattern: ClassVar[Pattern[str]] = r"^[.\d]$"
+    _symbolic_pattern: ClassVar[Pattern[str]] = r"^[a-zA-Zα-ωΓ-Ω+\-/*)(^]$"
+
+    def __init__(self, variable: str):
+        """Initialize a DerivativeCalculator with the variable the derivative will be calculated with respect to"""
+        self._variable = variable
+
+    def _get_current_term(self) -> str:
+        """Get the current term of the polynomial being computed"""
+        if self._exponent == 0.0:
+            return ""
+
+        self._numeric_coefficient *= self._exponent
+        self._exponent -= 1.0
+
+        current_term = []
+        if not self._is_first or self._operator == "-":
+            current_term.append(self._operator)
+        if self._numeric_coefficient != 1.0:
+            current_term.append(str(self._numeric_coefficient))
+        if len(self._symbolic_coefficient) > 0:
+            current_term.append(self._symbolic_coefficient)
+        if self._exponent != 0.0:
+            current_term.append(self._variable)
+            if self._exponent != 1.0:
+                current_term.append("^")
+                current_term.append(str(self._exponent))
+
+        return " ".join(current_term)
+
+    def calculate(self, polynomial: str) -> str:
+        """Calculate the derivative of a polynomial"""
+        polynomial = polynomial.strip()
+        result: list[str] = []
+        start: int = 0
+        if polynomial[start] in self._operators:
+            self._operator = self._operators[self._operators.index(polynomial[start])]
+            start += 1
+        else:
+            self._operator = "+"
+        self._is_first = True
+
+        nvar: list[str] = []
+        svar: list[str] = []
+        evar: list[str] = []
+        i = start
+        while i < len(polynomial):
+
+            while i < len(polynomial) and polynomial[i].isspace():
+                i += 1
+
+            nvar.clear()
+            while i < len(polynomial) and match(self._numeric_pattern, polynomial[i]):
+                nvar.append(polynomial[i])
+                i += 1
+            self._numeric_coefficient = float("".join(nvar)) if len(nvar) > 0 else 1.0
+
+            while i < len(polynomial) and polynomial[i].isspace():
+                i += 1
+
+            svar.clear()
+            while i < len(polynomial) and polynomial[i] != self._variable and match(self._symbolic_pattern, polynomial[i]):
+                svar.append(polynomial[i])
+                i += 1
+            self._symbolic_coefficient = "".join(svar)
+
+            while i < len(polynomial) and polynomial[i].isspace():
+                i += 1
+
+            evar.clear()
+            term_has_variable = False
+            if i < len(polynomial) and polynomial[i] == self._variable:
+                term_has_variable = True
+                i += 1
+                while i < len(polynomial) and polynomial[i].isspace():
+                    i += 1
+                if i == len(polynomial) or polynomial[i] != "^":
+                    self._exponent = 1.0
+                else:
+                    i += 1
+                    while i < len(polynomial) and polynomial[i].isspace():
+                        i += 1
+                    if not match(self._numeric_pattern, polynomial[i]):
+                        raise ValueError("Polynomial is not well-formed: No number after ^")
+                    while i < len(polynomial) and match(self._numeric_pattern, polynomial[i]):
+                        evar.append(polynomial[i])
+                        i += 1
+                    while i < len(polynomial) and polynomial[i].isspace():
+                        i += 1
+
+            self._exponent = float("".join(evar)) if len(evar) > 0 else (1.0 if term_has_variable else 0.0)
+
+            curr_term = self._get_current_term()
+            if len(curr_term) > 0:
+                result.append(curr_term)
+
+            self._is_first = False
+
+            if i < len(polynomial):
+                if polynomial[i] in self._operators:
+                    self._operator = self._operators[self._operators.index(polynomial[i])]
+                    i += 1
+                else:
+                    raise ValueError("Polynomial is not well-formed: missing a + or - between terms")
+
+        return " ".join(result)
+
+
+def _main():
+    variable = argv[1] if len(argv) > 1 else "x"
+    polynomial = argv[2] if len(argv) > 2 else "4x^3+3ax^2-2bx+2c"
+    print(DerivativeCalculator(variable).calculate(polynomial))
+
+
+if __name__ == "__main__":
+    _main()

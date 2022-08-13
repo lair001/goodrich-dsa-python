@@ -1,0 +1,1 @@
+You could improve this by supporting a symbolic component for exponents.
