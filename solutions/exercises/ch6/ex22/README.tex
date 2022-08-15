@@ -7,6 +7,7 @@
 % Packages
 \usepackage{amsmath}
 \usepackage{indentfirst}
+\usepackage[ruled,vlined]{algorithm2e}
 
 % Document
 \begin{document}
@@ -26,5 +27,27 @@ a nonrecursive way of evaluating an expression in postfix notation.
 
     \section*{Discussion}\label{sec:discussion}
     See the solution for Exercise 6.34.
+
+    \begin{algorithm}
+    \SetKwInOut{Input}{\textit{Input}}\SetKwInOut{Output}{\textit{Output}}
+    \Input{Postfix expression P, Stack S}
+    \Output{The evaluated value of P}
+    \BlankLine
+    \SetAlgoNoLine
+    \For{each token t in P}{
+        \uIf{t is a value}{
+            Push t onto S\;
+        }
+        \ElseIf{t is an operator}{
+            $operand2 \leftarrow S.pop()$\;
+            $operand1 \leftarrow S.pop()$\;
+            $value \leftarrow (operand1 \; t \; operand2)$\;
+            $S.push(value)$\;
+        }
+    }
+    \BlankLine
+    \KwRet S.pop()
+    \caption{EvaluatePostfix(P, S)}
+    \end{algorithm}
 
 \end{document}
