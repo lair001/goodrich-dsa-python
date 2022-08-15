@@ -16,6 +16,7 @@ ex21 every_subset
 ex23 ordered_transfer
 ex24 queue_stack
 ex25 stack_queue
+ex26 stack_deque
 ex27 scan
 ex28 max_len
 ex29 rotate_queue
