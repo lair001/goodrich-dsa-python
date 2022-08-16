@@ -22,3 +22,4 @@ ex28 max_len
 ex29 rotate_queue
 ex32 array_deque
 ex34 postfix
+ex36 capital_gains

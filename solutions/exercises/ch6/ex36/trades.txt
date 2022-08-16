@@ -1,0 +1,4 @@
+buy 100 shares at $20.00 each
+buy 20 shares at $24.00 each
+buy 200 shares at $36.00 each
+sell 150 shares at $30.00 each
