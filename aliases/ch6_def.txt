@@ -20,4 +20,5 @@ ex26 stack_deque
 ex27 scan
 ex28 max_len
 ex29 rotate_queue
+ex32 array_deque
 ex34 postfix
