@@ -3,7 +3,7 @@ from solutions.vendor.ch06.empty import Empty
 
 
 class RedBlueStack:
-    _DEFAULT_CAPACITY: ClassVar[int] = 10
+    _DEFAULT_CAPACITY: ClassVar[int] = 4
 
     _data: list
     _red_size: int
@@ -62,7 +62,7 @@ class RedBlueStack:
         if self.is_red_empty():
             raise Empty("Red stack is empty!")
         if len(self._data) // 4 > len(self) > RedBlueStack._DEFAULT_CAPACITY:
-            self._resize(len(self._data) // 2)
+            self._resize(max(RedBlueStack._DEFAULT_CAPACITY, len(self._data) // 2))
         self._red -= 1
         result = self._data[self._red]
         self._data[self._red] = None
@@ -78,7 +78,7 @@ class RedBlueStack:
         if self.is_blue_empty():
             raise Empty("Blue stack is empty!")
         if len(self._data) // 4 > len(self) > RedBlueStack._DEFAULT_CAPACITY:
-            self._resize(len(self._data) // 2)
+            self._resize(max(RedBlueStack._DEFAULT_CAPACITY, len(self._data) // 2))
         self._blue += 1
         result = self._data[self._blue]
         self._data[self._blue] = None
