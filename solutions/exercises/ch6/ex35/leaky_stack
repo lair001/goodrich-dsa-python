@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# ch6/ex35
+from sys import argv
+
+from solutions.exercises.ch6.ex16.full import Full
+from solutions.exercises.ch6.ex16.max_len_array_stack import MaxLenArrayStack
+from solutions.exercises.ch6.ex35.leaky_stack import LeakyStack
+
+
+def _main():
+    maxlen = int(argv[1]) if len(argv) > 1 else 10
+    s = LeakyStack(maxlen)
+    print("s has a maxlen of {}.".format(maxlen))
+    for i in range(maxlen):
+        s.push(i)
+    print("s: {}".format(s))
+    for i in range(maxlen, maxlen + maxlen):
+        s.push(i)
+    print("s: {}".format(s))
+
+
+if __name__ == "__main__":
+    _main()

@@ -23,5 +23,6 @@ ex29 rotate_queue
 ex32 array_deque
 ex33 collections_deque
 ex34 postfix
+ex35 leaky_stack
 ex36 capital_gains
 ex37 red_blue_stack
