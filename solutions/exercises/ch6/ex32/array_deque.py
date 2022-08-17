@@ -4,7 +4,7 @@ from solutions.vendor.ch06.empty import Empty
 
 
 class ArrayDeque:
-    _DEFAULT_CAPACITY: ClassVar[int] = 10
+    _DEFAULT_CAPACITY: ClassVar[int] = 4
 
     _data: list
     _size: int
@@ -28,7 +28,7 @@ class ArrayDeque:
         first_size = self._size // 2
         last_size = self._size - first_size
         for i in range(first_size - 1, -last_size - 1, -1):
-            new_data[i] = self._data[(self._first - i + first_size - 2) % len(self._data)]
+            new_data[i] = self._data[(self._first + i - first_size) % len(self._data)]
         self._first = first_size
         self._last = len(new_data) - (last_size + 1)
         self._data = new_data
