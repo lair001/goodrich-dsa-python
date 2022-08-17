@@ -21,6 +21,7 @@ ex27 scan
 ex28 max_len
 ex29 rotate_queue
 ex32 array_deque
+ex33 collections_deque
 ex34 postfix
 ex36 capital_gains
 ex37 red_blue_stack
