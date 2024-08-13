@@ -3,7 +3,7 @@
 # ch3/ex41
 from collections import deque
 
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 def min_max(int_seq):
