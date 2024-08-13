@@ -2,7 +2,7 @@
 
 # ch5/ex7
 
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 def find_repeat(lst):
