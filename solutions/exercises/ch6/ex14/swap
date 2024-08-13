@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # ch6/ex14
 from solutions.exercises.ch6.ex11.deque import Deque
