@@ -3,7 +3,7 @@
 # ch4/ex20
 from sys import argv
 
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 def k_sort(seq, k):
