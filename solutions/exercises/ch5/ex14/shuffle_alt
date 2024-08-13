@@ -3,7 +3,7 @@
 # ch5/ex14/2
 import random
 
-from build.lib.solutions.libs.utils.argv import parse_list
+from solutions.libs.utils.argv import parse_list
 
 
 # A Knuth shuffle variant where instead of shuffling a[i] into the shuffled slice, you're choosing
