@@ -3,7 +3,7 @@
 # ch3/ex50/3
 
 from sys import argv
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 # We are going to model the coefficients as a list of numbers of
