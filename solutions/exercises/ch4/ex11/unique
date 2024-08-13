@@ -2,7 +2,7 @@
 
 # ch4/ex11
 
-from build.lib.solutions.libs.utils.argv import parse_list
+from solutions.libs.utils.argv import parse_list
 
 
 def unique(seq):
