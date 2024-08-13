@@ -2,7 +2,7 @@
 
 # ch3/ex54
 
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 # There is a variant of this problem where S is guaranteed to have at least
