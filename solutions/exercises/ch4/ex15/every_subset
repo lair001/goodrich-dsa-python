@@ -2,7 +2,7 @@
 
 # ch4/ex15
 
-from build.lib.solutions.libs.utils.argv import parse_int_list
+from solutions.libs.utils.argv import parse_int_list
 
 
 def get_every_subset(_set):
