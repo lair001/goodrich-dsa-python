@@ -6,7 +6,7 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-setuptools = "==63.2.0"
+setuptools = "==73.0.0"
 "data-structures-and-algorithms-in-python-solutions" = {path = ".", editable = true}
 pytest = "==8.3.2"
 matplotlib = "==3.9.2"
