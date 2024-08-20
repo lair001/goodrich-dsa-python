@@ -4,13 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
-pytest = "*"
-matplotlib = "*"
 
 [packages]
 setuptools = "==63.2.0"
-"e1839a8" = {path = ".", editable = true}
-matplotlib = "*"
+"data-structures-and-algorithms-in-python-solutions" = {path = ".", editable = true}
+pytest = "==8.3.2"
+matplotlib = "==3.9.2"
 
 [requires]
 python_version = "3.10.5"
